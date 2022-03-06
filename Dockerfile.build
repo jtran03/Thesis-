@@ -1,0 +1,45 @@
+FROM ros:melodic-robot-bionic
+
+### INSTALLATIONS FIRST because Docker caches them which means if you want to edit
+### the dockerfile later it won't need to redownload everything
+
+# Install X server and VNC
+RUN apt update
+RUN apt install -y x11vnc xvfb firefox fluxbox
+
+# Install Gazebo
+RUN apt install -y gazebo9 libgazebo9-dev
+
+# Install turtlebot dependencies
+RUN apt install -y ros-melodic-joy ros-melodic-teleop-twist-joy ros-melodic-teleop-twist-keyboard ros-melodic-laser-proc ros-melodic-rgbd-launch ros-melodic-depthimage-to-laserscan ros-melodic-rosserial-arduino ros-melodic-rosserial-python ros-melodic-rosserial-server ros-melodic-rosserial-client ros-melodic-rosserial-msgs ros-melodic-amcl ros-melodic-map-server ros-melodic-move-base ros-melodic-urdf ros-melodic-xacro ros-melodic-compressed-image-transport ros-melodic-rqt* ros-melodic-gmapping ros-melodic-navigation ros-melodic-interactive-markers
+RUN apt install -y ros-melodic-dynamixel-sdk ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3
+RUN apt install -y rviz
+RUN apt install -y ros-melodic-gazebo-ros-pkgs
+RUN apt update
+RUN apt install -y ros-melodic-hector-slam
+# Let's not moveit for the moment
+# RUN apt install -y ros-melodic-moveit
+
+
+
+# Niceties
+RUN apt install -y nano
+RUN apt install -y enscript ghostscript
+
+# Fetch the turtlebot sim stuff
+RUN mkdir ~/catkin_ws
+RUN mkdir ~/catkin_ws/src
+RUN cd ~/catkin_ws/src && git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+
+RUN apt install -y ros-melodic-laser-filters
+RUN apt install -y ros-melodic-multirobot-map-merge
+
+### BUILDS SECOND: Somewhat more time expensive than simple .bashrc changes, so try to cache them
+RUN bash -c "cd ~/catkin_ws && source /opt/ros/melodic/setup.bash && catkin_make"
+
+### EDITS TO SIMPLE FILES LAST
+RUN echo "source /root/catkin_ws/devel/setup.bash" >> ~/.bashrc
+RUN echo "export TURTLEBOT3_MODEL=burger" >> ~/.bashrc
+RUN echo "export DISPLAY=:0" >> ~/.bashrc
+RUN echo "#!/bin/bash\nexport DISPLAY=:0\nXvfb -screen 0 1600x1200x24+32 &\nx11vnc -repeat &\nfluxbox &" > /openvnc.sh
+RUN chmod +x openvnc.sh
