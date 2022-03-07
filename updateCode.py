@@ -18,4 +18,4 @@ if not args.nobuild:
     else:
         os.system("docker exec -it pizzabotsim /bin/bash -c \"source /opt/ros/melodic/setup.bash && cd /root/catkin_ws && catkin_make \"")
 
-os.system("docker exec -it turtlebot /bin/bash -c \"chmod +x /root/catkin_ws/src/shellCommander/scripts/rviz_with_tfprefix.py \"")
+os.system("docker exec -it pizzabotsim /bin/bash -c \"chmod +x /root/catkin_ws/src/shellCommander/scripts/rviz_with_tfprefix.py \"")
