@@ -10,7 +10,8 @@ parser.add_argument("--nobuild", action="store_true")
 args = parser.parse_args()
 
 
-os.system("docker cp shellCommander pizzabotsim:/root/catkin_ws/src")
+# os.system("docker cp shellCommander pizzabotsim:/root/catkin_ws/src")
+os.system("docker cp jmoab-ros pizzabotsim:/root/catkin_ws/src")
 
 if not args.nobuild:
     if args.quick:
