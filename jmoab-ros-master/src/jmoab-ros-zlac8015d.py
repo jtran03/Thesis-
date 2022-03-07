@@ -75,7 +75,7 @@ class JMOAB_ZLAC8015D:
 		self.zlac8015d_speed_mode_init()
 
 		self.max_rpm = 150
-		self.ultimate_rpm = 200 
+		self.ultimate_rpm = 200
 		self.deadband_rpm = 3
 
 		self.zlac8015d_mode = 3
@@ -153,12 +153,12 @@ class JMOAB_ZLAC8015D:
 		self.got_pos_dist_cmd = True
 
 	def zlac8015d_set_rpm_with_limit(self, left_rpm, right_rpm):
-		if (-self.ultimate_rpm < left_rpm < self.ultimate_rpm) and (-self.ultimate_rpm < right_rpm < self.ultimate_rpm): 
+		if (-self.ultimate_rpm < left_rpm < self.ultimate_rpm) and (-self.ultimate_rpm < right_rpm < self.ultimate_rpm):
 			# print(left_rpm, right_rpm)
-			if (-self.deadband_rpm < left_rpm < self.deadband_rpm): 
+			if (-self.deadband_rpm < left_rpm < self.deadband_rpm):
 				left_rpm = 0
 
-			if (-self.deadband_rpm < right_rpm < self.deadband_rpm): 
+			if (-self.deadband_rpm < right_rpm < self.deadband_rpm):
 				right_rpm = 0
 
 			self.zlc.set_rpm(int(left_rpm), int(right_rpm))
@@ -187,7 +187,7 @@ class JMOAB_ZLAC8015D:
 
 		self.prev_mode_num = self.mode_num
 
-		return self.mode_num 
+		return self.mode_num
 
 	def cart_mode_callack(self, msg):
 		self.write_atcart_mode(msg.data)
@@ -290,7 +290,7 @@ class JMOAB_ZLAC8015D:
 						self.cmd_throttle = 1024
 					else:
 						left_rpm, right_rpm = self.channel_mixing(self.cmd_steering, self.cmd_throttle)
-						
+
 					self.mode_num = 2
 					self.mode = "AUTO"
 					self.zlac8015d_set_rpm_with_limit(left_rpm, right_rpm)
@@ -300,7 +300,7 @@ class JMOAB_ZLAC8015D:
 					self.wheels_rpm_pub.publish(self.wheels_rpm_msg)
 
 
-				# Position control mode 
+				# Position control mode
 				elif self.zlac8015d_mode == 1:
 					if self.got_pos_cmd:
 						self.zlc.set_relative_angle(self.left_pos_deg_cmd ,self.right_pos_deg_cmd)
@@ -352,7 +352,7 @@ class JMOAB_ZLAC8015D:
 			### Odometry computation ###
 			############################
 			self.l_meter, self.r_meter = self.zlc.get_wheels_travelled()
-			self.l_meter = self.l_meter - self.l_meter_init 
+			self.l_meter = self.l_meter - self.l_meter_init
 			self.r_meter = (-1*self.r_meter) - (-1*self.r_meter_init)
 			if self.zlac8015d_mode == 1:
 				vl = (self.l_meter-self.prev_l_meter)/period
@@ -414,10 +414,10 @@ class JMOAB_ZLAC8015D:
 				V = 0.0
 				Wz = 0.0
 				R_ICC = 0.0
-				
+
 			q = quaternion_from_euler(0,0, theta)
 			# construct tf
-			self.t.header.frame_id = "odom" 
+			self.t.header.frame_id = "odom"
 			self.t.header.stamp = rospy.Time.now()
 			self.t.child_frame_id = "base_link"	#"base_footprint"	#"base_link"
 			self.t.transform.translation.x = x
@@ -474,7 +474,7 @@ class JMOAB_ZLAC8015D:
 
 			prev_ch5 = sbus_ch_array[4]
 
-			
+
 			period = time.time() - start_time
 			self.prev_l_meter = self.l_meter
 			self.prev_r_meter = self.r_meter

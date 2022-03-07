@@ -17,7 +17,7 @@ class JMOAB_ATCart(object):
 		#### SBUS Steering Throttle ####
 		self.sbus_steering_mid = 1024
 		self.sbus_throttle_mid = 1024
-
+		
 		self.cmd_steering = self.sbus_steering_mid
 		self.cmd_throttle = self.sbus_throttle_mid
 
@@ -147,7 +147,7 @@ class JMOAB_ATCart(object):
 
 			self.send_left_right(int(left_sbus), int(right_sbus))
 			self.callback_timestamp = time.time()
-			
+
 	def cart_mode_callack(self, msg):
 		self.write_atcart_mode(msg.data)
 
@@ -173,7 +173,7 @@ class JMOAB_ATCart(object):
 			swap = left
 			left = right
 			right = swap
-		
+
 		self.prev_y = y
 
 		## left and right are in -200 to 200 ranges
@@ -225,7 +225,7 @@ class JMOAB_ATCart(object):
 			self.sbus_ch_pub.publish(self.sbus_ch)
 
 			## if there is no sbus command until callback_timeout
-			## then set back to neutral for all 
+			## then set back to neutral for all
 			if ((time.time() - self.callback_timestamp) > self.callback_timeout):
 				self.send_left_right(int(self.sbus_mid), int(self.sbus_mid))
 
