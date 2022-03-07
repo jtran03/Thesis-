@@ -112,7 +112,7 @@ class JMOAB_ZLAC8015D:
 		self.loop()
 
 		rospy.spin()
-
+	# geko
 	def zlac8015d_speed_mode_init(self):
 		self.zlc.disable_motor()
 		self.zlc.set_accel_time(200,200)
