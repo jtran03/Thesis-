@@ -11,6 +11,8 @@ goal = [40,40]
 obstacle = [25,25]
 X, Y = np.meshgrid(x,y)
 
+print(X,Y)
+
 delx = np.zeros_like(X)
 dely = np.zeros_like(Y)
 
@@ -23,8 +25,9 @@ dely = np.zeros_like(Y)
     s = 15
     r = 2
 """
-s = 15
-r=2
+s = 10
+r = 1
+
 for i in range(len(x)):
   for j in range(len(y)):
 
@@ -73,6 +76,6 @@ ax.add_patch(plt.Circle((33, 40), r, color='m'))
 ax.annotate("Obstacle", xy=(25, 25), fontsize=8, ha="center")
 ax.annotate("Goal", xy=(33, 40), fontsize=10, ha="center")
 
-ax.set_title('Path taken by the Robot ')
+ax.set_title('Combined Potential when Goal and Obstacle are different ')
 
 plt.show()
