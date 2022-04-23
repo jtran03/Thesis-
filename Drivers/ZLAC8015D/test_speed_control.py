@@ -8,7 +8,7 @@ motors.disable_motor()
 
 motors.set_accel_time(1000,1000)
 motors.set_decel_time(1000,1000)
-
+#hi
 motors.set_mode(3)
 motors.enable_motor()
 
@@ -30,7 +30,7 @@ while True:
 		time.sleep(1)
 
 		# if (i % 10) == 0:
-			
+
 
 	except KeyboardInterrupt:
 		motors.disable_motor()
