@@ -1,0 +1,13 @@
+# Some Commands:
+source ./devel/setup.bash
+
+# ZED 2 Camera
+roslaunch zed_wrapper zed2.launch
+roslaunch zed_wrapper zed2.launch svo_file:=/path/to/file.svo
+
+# Brick 2.0 (sensor_msgs::Imu imuMsg)
+roslaunch tinkerforge_imu_ros bricks_v2.launch
+
+# Arduino Nano
+rosrun rosserial_python serial_node.py /dev/ttyUSB0
+rostopic pub toggle_led std_msgs/String "a" --once
