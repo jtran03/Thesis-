@@ -4,14 +4,18 @@
 <head>
   <meta charset="utf-8" />
 
+  <!-- Import js files  -->
   <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.7.3/nipplejs.js"></script>
 
+  <!-- Create a ROS Node -->
   <script type="text/javascript" type="text/javascript">
     var ros = new ROSLIB.Ros({
-      url: 'ws://localhost:9090'
+      url: 'ws://localhost:9090' //change this 
+      // url: 'ws://192.168.1.109:9090/'
     });
 
+    // Monitor connection to the rosbridge server
     ros.on('connection', function () {
       document.getElementById("status").innerHTML = "Connected";
     });
@@ -24,24 +28,58 @@
       document.getElementById("status").innerHTML = "Closed";
     });
 
+    // Subscribing Topics 
+    // -------------------
+
+    // Listening to topic:/turtlesim/pose
+    var pose_listener = new ROSLIB.Topic({
+      ros: ros,
+      name: '/turtle1/pose',
+      messageType: 'turtlesim/Pose'
+    });
+
+    // Callback Function to topic:/turtlesim/pose
+    pose_listener.subscribe(function (m) {
+
+      // Convert to JSon for parsing 
+      const json = JSON.stringify(m);
+      const obj = JSON.parse(json); 
+
+      // Save X Position 
+      document.getElementById("x_coord").innerHTML = obj.x;
+      // Save Y Position
+      document.getElementById("y_coord").innerHTML = obj.y;
+
+    });
+
+    // Listening to topic:/txt_msg
     var txt_listener = new ROSLIB.Topic({
       ros: ros,
       name: '/txt_msg',
       messageType: 'std_msgs/String'
     });
 
+    // Callback Function to topic:/txt_msg
     txt_listener.subscribe(function (m) {
       document.getElementById("msg").innerHTML = m.data;
-      move(1, 0);
+      console.log('Received message on ' + txt_listener.name + ': ' + m.data);
+      txt_listener.unsubscribe();
     });
 
+    // Publishing Topics 
+    // ------------------
+
+    // Listening to topic:/turtle1/cmd_vel
     cmd_vel_listener = new ROSLIB.Topic({
       ros: ros,
       name: "/turtle1/cmd_vel",
       messageType: 'geometry_msgs/Twist'
     });
 
+    // Publishing Function 
     move = function (linear, angular) {
+
+      // Set-up a twist message  
       var twist = new ROSLIB.Message({
         linear: {
           x: linear,
@@ -54,9 +92,13 @@
           z: angular
         }
       });
+
+      // Main code to publish a message 
       cmd_vel_listener.publish(twist);
     }
 
+    // Joystick Code 
+    // --------------------------------
     createJoystick = function () {
       var options = {
         zone: document.getElementById('zone_joystick'),
@@ -95,7 +137,7 @@
     window.onload = function () {
       createJoystick();
     }
-
+  //--------------------------------
   </script>
 </head>
 
@@ -103,6 +145,13 @@
   <h1>Simple ROS User Interface</h1>
   <p>Connection status: <span id="status"></span></p>
   <p>Last message on /txt_msg: <span id="msg"></span></p>
+  <p>X Position: <span id="x_coord"></span></p>
+  <p>Y Position: <span id="y_coord"></span></p>
+  <h2> Run the following Commands</h2>
+  <p>roslaunch rosbridge_server rosbridge_websocket.launch</p>
+  <p>rosrun turtlesim turtlesim_node</p>
+  <button onClick="window.location.reload();">Refresh Page</button>
+  <p></p>
   <div id="zone_joystick" style="position: relative;"></div>
 </body>
 
