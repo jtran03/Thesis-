@@ -31,17 +31,12 @@ echo "##########################################################"
 cd ~/Desktop/
 mkdir -p tempfiles
 cd tempfiles/
-
-{
-if [ ! -f ~/usr/local/zed/get_python_api.py ]; then
-  echo "##########################################################"
-  echo "################### Downloading ZED SDK ##################"
-  echo "##########################################################"
-  wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
-  chmod +x zedsdk.run
-  ./zedsdk.run -- silent
-fi
-}
+echo "##########################################################"
+echo "################### Downloading ZED SDK ##################"
+echo "##########################################################"
+wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
+chmod +x zedsdk.run
+./zedsdk.run -- silent
 rm -rf tempfiles
 
 
@@ -55,3 +50,4 @@ echo "Compiling"
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release
+source ./devel/setup.bash
