@@ -30,7 +30,7 @@ echo "Installing ZED SDK"
 echo "##########################################################"
 cd ~/Desktop/
 mkdir -p tempfiles
-cd /tempfiles/
+cd tempfiles/
 
 {
 if [ ! -f zedsdk.run ]; then
