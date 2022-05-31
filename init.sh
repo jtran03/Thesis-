@@ -18,10 +18,25 @@ cd ~/catkin_ws/
 catkin_make
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 source ~/.bashrc
-cd ~/catkin_ws/src
+
 
 # Installing ZED 
-echo "Installing ZED"
+cd ~/Desktop/
+mkdir -p temp
+cd /temp/
+echo "##########################################################"
+echo "Installing ZED SDK"
+echo "##########################################################"
+wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
+chmod +x zedsdk.run
+./zedsdk.run
+
+
+
+
+
+echo "Installing ZED ROS Packages"
+cd ~/catkin_ws/src
 git clone https://github.com/stereolabs/zed-ros-wrapper.git
 git clone https://github.com/stereolabs/zed-ros-interfaces.git
 
