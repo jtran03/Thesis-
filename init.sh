@@ -33,7 +33,7 @@ mkdir -p tempfiles
 cd tempfiles/
 
 {
-if [ ! -f zedsdk.run ]; then
+if [ ! -f ~/usr/local/zed/get_python_api.py ]; then
   echo "##########################################################"
   echo "################### Downloading ZED SDK ##################"
   echo "##########################################################"
