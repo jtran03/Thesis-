@@ -28,10 +28,19 @@ echo "##########################################################"
 cd ~/Desktop/
 mkdir -p tempfiles
 cd /tempfiles/
-wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
-chmod +x zedsdk.run
-./zedsdk.run -- silent
+
+{
+if [ ! -f zedsdk.run ]; then
+  echo "##########################################################"
+  echo "################### Downloading ZED SDK ##################"
+  echo "##########################################################"
+  wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
+  chmod +x zedsdk.run
+  ./zedsdk.run -- silent
+fi
+}
 rm -rf tempfiles
+
 
 echo "Installing ZED ROS Packages"
 cd ~/catkin_ws/src
