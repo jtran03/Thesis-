@@ -12,7 +12,7 @@ sudo apt install python-rosdep python-rosinstall python-rosinstall-generator pyt
 sudo rosdep init
 rosdep update
 sudo apt-get install cmake python-catkin-pkg python-empy python-nose python-setuptools libgtest-dev python-rosinstall python-rosinstall-generator python-wstool build-essential git
-rm -r ~/catkin_ws
+rm -rf ~/catkin_ws
 mkdir -p ~/catkin_ws/src 
 echo "Creating Catkin Workspace" 
 cd ~/catkin_ws/
@@ -31,7 +31,7 @@ cd /tempfiles/
 wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
 chmod +x zedsdk.run
 ./zedsdk.run -- silent`
-rm -r tempfiles
+rm -rf tempfiles
 
 echo "Installing ZED ROS Packages"
 cd ~/catkin_ws/src
