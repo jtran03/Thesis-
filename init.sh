@@ -13,13 +13,20 @@ sudo rosdep init
 rosdep update
 sudo apt-get install cmake python-catkin-pkg python-empy python-nose python-setuptools libgtest-dev python-rosinstall python-rosinstall-generator python-wstool build-essential git
 mkdir -p ~/catkin_ws/src 
+echo "Creating Catkin Workspace" 
 cd ~/catkin_ws/
 catkin_make
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 source ~/.bashrc
 cd ~/catkin_ws/src
+
+# Installing ZED 
+echo "Installing ZED"
 git clone https://github.com/stereolabs/zed-ros-wrapper.git
 git clone https://github.com/stereolabs/zed-ros-interfaces.git
+
+#Installing 
+echo "Compiling"
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release
