@@ -37,14 +37,31 @@ echo "##########################################################"
 wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
 chmod +x zedsdk.run
 ./zedsdk.run -- silent
-cd ../
-rm -rf tempfiles
+git clone https://github.com/jtran03/Thesis-.git
 
 
-echo "Installing ZED ROS Packages"
+echo "Installing ROS Packages"
 cd ~/catkin_ws/src
+# ZED 2 
 git clone https://github.com/stereolabs/zed-ros-wrapper.git
 git clone https://github.com/stereolabs/zed-ros-interfaces.git
+
+# Arduino Related Packages
+sudo apt-get install ros-melodic-rosserial-arduino
+
+# ZLAC8015D Packages
+cp -R ~/Desktop/tempfiles/Thesis-/zlac8015d ~/catkin_ws/src 
+
+$ IMU Brick 2.0 
+git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
+rm -f ~/catkin_ws/tinkerforge_imu_ros/src/brick_imu_v2.cpp
+cp ~/Desktop/tempfiles/Thesis-/
+
+# RPLidar 
+
+
+# Web Server 
+sudo apt-get install ros-melodic-rosbridge-server
 
 #Installing 
 echo "Compiling"
@@ -52,3 +69,5 @@ cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release
 source ./devel/setup.bash
+rm -rf ~/Desktop/tempfiles
+
