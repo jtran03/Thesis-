@@ -31,7 +31,7 @@ python3 -m venv my-python-env
 source ~/Desktop/VirtualEnv/my-python-env/bin/activate
 pip install nodeenv
 nodeenv --node=16.15.1 --npm=8.11.0 ~/Desktop/VirtualEnv/env
-. env/bin/activate
+. ~/Desktop/VirtualEnv/env/bin/activate
 deactivate_node
 deactivate
 
