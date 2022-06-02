@@ -15,7 +15,7 @@ sudo apt install python-rosdep python-rosinstall python-rosinstall-generator pyt
 sudo rosdep init
 rosdep update
 sudo apt-get install cmake python-catkin-pkg python-empy python-nose python-setuptools libgtest-dev python-rosinstall python-rosinstall-generator python-wstool build-essential git
-rm -rf ~/catkin_ws
+rm -rf ~/catkin_ws/src 
 mkdir -p ~/catkin_ws/src 
 echo "Creating Catkin Workspace" 
 cd ~/catkin_ws/
@@ -23,6 +23,17 @@ catkin_make
 echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc 
 source ~/.bashrc
 
+### Installing nodejs ###
+mkdir -p ~/Desktop/VirtualEnv
+cd ~/Desktop/VirtualEnv
+sudo apt install python3-venv -y
+python3 -m venv my-python-env
+source ~/Desktop/VirtualEnv/my-python-env/bin/activate
+pip install nodeenv
+nodeenv --node=16.15.1 --npm=8.11.0 ~/Desktop/VirtualEnv/env
+. env/bin/activate
+deactivate_node
+deactivate
 
 # Installing ZED 
 echo "##########################################################"
@@ -37,8 +48,8 @@ echo "##########################################################"
 wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
 chmod +x zedsdk.run
 ./zedsdk.run -- silent
+cd ~/Desktop/
 git clone https://github.com/jtran03/Thesis-.git
-
 
 echo "Installing ROS Packages"
 cd ~/catkin_ws/src
@@ -47,21 +58,21 @@ git clone https://github.com/stereolabs/zed-ros-wrapper.git
 git clone https://github.com/stereolabs/zed-ros-interfaces.git
 
 # Arduino Related Packages
-sudo apt-get install ros-melodic-rosserial-arduino
+sudo apt-get install ros-melodic-rosserial-arduino -y
 
 # ZLAC8015D Packages
-cp -R ~/Desktop/tempfiles/Thesis-/zlac8015d ~/catkin_ws/src 
+cp -R ~/Desktop/Thesis-/ROS Packages/zlac8015d ~/catkin_ws/src 
 
 $ IMU Brick 2.0 
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
 rm -f ~/catkin_ws/tinkerforge_imu_ros/src/brick_imu_v2.cpp
-cp ~/Desktop/tempfiles/Thesis-/
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/brick_imu_v2.cpp ~/catkin_ws/tinkerforge_imu_ros/src/
 
 # RPLidar 
 
 
 # Web Server 
-sudo apt-get install ros-melodic-rosbridge-server
+sudo apt-get install ros-melodic-rosbridge-server -y
 
 #Installing 
 echo "Compiling"
