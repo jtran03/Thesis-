@@ -48,8 +48,6 @@ echo "##########################################################"
 wget  -O zedsdk.run "https://download.stereolabs.com/zedsdk/3.7/l4t32.7/jetsons"
 chmod +x zedsdk.run
 ./zedsdk.run -- silent
-cd ~/Desktop/
-git clone https://github.com/jtran03/Thesis-.git
 
 echo "Installing ROS Packages"
 cd ~/catkin_ws/src
