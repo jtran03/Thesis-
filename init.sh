@@ -59,7 +59,7 @@ git clone https://github.com/stereolabs/zed-ros-interfaces.git
 sudo apt-get install ros-melodic-rosserial-arduino -y
 
 # ZLAC8015D Packages
-cp -R ~/Desktop/Thesis-/ROS Packages/zlac8015d ~/catkin_ws/src 
+cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
 
 $ IMU Brick 2.0 
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
