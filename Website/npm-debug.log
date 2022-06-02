@@ -1,0 +1,67 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', '-g', 'nodemon' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData nodemon
+8 silly fetchNamedPackageData nodemon
+9 silly mapToRegistry name nodemon
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/nodemon
+13 verbose request uri https://registry.npmjs.org/nodemon
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 2:46:18 pm
+16 verbose request id 54cee54ee1e333df
+17 http request GET https://registry.npmjs.org/nodemon
+18 info retry will retry, error on last attempt: Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+19 info attempt registry request try #2 at 2:46:28 pm
+20 http request GET https://registry.npmjs.org/nodemon
+21 info retry will retry, error on last attempt: Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+22 info attempt registry request try #3 at 2:47:28 pm
+23 http request GET https://registry.npmjs.org/nodemon
+24 silly fetchPackageMetaData Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+24 silly fetchPackageMetaData     at Object._errnoException (util.js:1022:11)
+24 silly fetchPackageMetaData     at _exceptionWithHostPort (util.js:1044:20)
+24 silly fetchPackageMetaData     at internalConnect (net.js:976:16)
+24 silly fetchPackageMetaData     at defaultTriggerAsyncIdScope (internal/async_hooks.js:283:19)
+24 silly fetchPackageMetaData     at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1122:9)
+24 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+24 silly fetchPackageMetaData  error for nodemon { Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+24 silly fetchPackageMetaData     at Object._errnoException (util.js:1022:11)
+24 silly fetchPackageMetaData     at _exceptionWithHostPort (util.js:1044:20)
+24 silly fetchPackageMetaData     at internalConnect (net.js:976:16)
+24 silly fetchPackageMetaData     at defaultTriggerAsyncIdScope (internal/async_hooks.js:283:19)
+24 silly fetchPackageMetaData     at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1122:9)
+24 silly fetchPackageMetaData     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+24 silly fetchPackageMetaData   code: 'ENETUNREACH',
+24 silly fetchPackageMetaData   errno: 'ENETUNREACH',
+24 silly fetchPackageMetaData   syscall: 'connect',
+24 silly fetchPackageMetaData   address: '104.16.25.35',
+24 silly fetchPackageMetaData   port: 443 }
+25 silly rollbackFailedOptional Starting
+26 silly rollbackFailedOptional Finishing
+27 silly runTopLevelLifecycles Starting
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+30 verbose stack     at Object._errnoException (util.js:1022:11)
+30 verbose stack     at _exceptionWithHostPort (util.js:1044:20)
+30 verbose stack     at internalConnect (net.js:976:16)
+30 verbose stack     at defaultTriggerAsyncIdScope (internal/async_hooks.js:283:19)
+30 verbose stack     at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1122:9)
+30 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
+31 verbose cwd /home/jhtran/Thesis-/Website
+32 error Linux 4.9.253-tegra
+33 error argv "/usr/bin/node" "/usr/bin/npm" "i" "-g" "nodemon"
+34 error node v8.10.0
+35 error npm  v3.5.2
+36 error code ENETUNREACH
+37 error errno ENETUNREACH
+38 error syscall connect
+39 error connect ENETUNREACH 104.16.25.35:443 - Local (0.0.0.0:0)
+40 error If you need help, you may report this error at:
+40 error     <https://github.com/npm/npm/issues>
+41 verbose exit [ 1, true ]
