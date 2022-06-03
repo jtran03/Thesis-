@@ -257,15 +257,18 @@ const http = require('http');
 const fs = require('fs)');
 http.createServer((req,res)=>{
 
-    // Create a read stream 
+    // Create a read stream //switch with .png //.json 
     const readStream = fs.createReadStream('./static/index.html')
 
     // Write a header (let the client know what type of data im expecting)
-    // Status code: 200 is good status --> http status codes
+    // Status code: 200 is good status --> http status codes switch with png//json
     res.writeHead(200,{'Content-type': 'text/html'});
 
     // Pipe html to the response  
     readStream.pipe(res);
     
 }).listen(3000)
+
+// Express js File ------------------------------------------------------------------
+
 
