@@ -1,6 +1,11 @@
 #!/bin/bash
 # Initialisatin Script 
 
+# Set up Git
+git config --global user.email "jtran30130@gmail.com"
+git config --global user.name "John Tran"
+
+
 #### installing ROS ####
 echo "##########################################################"
 echo "Installing ROS-melodic"
