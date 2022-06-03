@@ -39,6 +39,7 @@ deactivate
 # Creating a nodejs script 
 cat > ~/Desktop/VirtualEnv/start_nodejs.sh <<EOF
 #!/bin/bash
+echo "Starting Nodejs Node"
 source ~/Desktop/VirtualEnv/my-python-env/bin/activate
 . ~/Desktop/VirtualEnv/env/bin/activate
 cd ~/Desktop/Thesis-/Website
@@ -70,6 +71,7 @@ git clone https://github.com/stereolabs/zed-ros-interfaces.git
 sudo apt-get install ros-melodic-rosserial-arduino -y
 
 # ZLAC8015D Packages
+sudo apt-get install -y python-pymodbus
 cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
 
 $ IMU Brick 2.0 
