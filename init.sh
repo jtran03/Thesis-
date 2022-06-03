@@ -1,3 +1,4 @@
+#!/bin/bash
 # Initialisatin Script 
 
 #### installing ROS ####
@@ -35,6 +36,16 @@ nodeenv --node=16.15.1 --npm=8.11.0 ~/Desktop/VirtualEnv/env
 deactivate_node
 deactivate
 
+# Creating a nodejs script 
+cat > ~/Desktop/VirtualEnv/start_nodejs.sh <<EOF
+#!/bin/bash
+source ~/Desktop/VirtualEnv/my-python-env/bin/activate
+. ~/Desktop/VirtualEnv/env/bin/activate
+cd ~/Desktop/Thesis-/Website
+node app.js
+EOF
+chmod +x ~/Desktop/VirtualEnv/start_nodejs.sh # Make the script executable
+
 # Installing ZED 
 echo "##########################################################"
 echo "Installing ZED SDK"
@@ -63,8 +74,8 @@ cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src
 
 $ IMU Brick 2.0 
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
-rm -f ~/catkin_ws/tinkerforge_imu_ros/src/brick_imu_v2.cpp
-cp ~/Desktop/Thesis-/Drivers/imubrick2.0/brick_imu_v2.cpp ~/catkin_ws/tinkerforge_imu_ros/src/
+rm -f ~/catkin_ws/tinkerforge_imu_ros/src/tinkerforge_imu_ros.cpp
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/tinkerforge_imu_ros/src/
 
 # RPLidar 
 
