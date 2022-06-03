@@ -273,9 +273,32 @@
 const express = require('express'); 
 const app = express(); 
 
-// Index Route '/' --> localhost:3000
+// Call back function listening at '/' --> localhost:3000
 app.get('/',(req,res)=>{
     res.send('Hello World'); 
-})
+});
+
+// Call back function listening at 'localhost:3000/example'
+app.get('/example',(req,res)=>{
+    res.send('hitting exmaple route');
+});
+
+// Call back function listening at 'localhost:3000/example/:name/:age'
+// Extracts name and age into req.params.name / req.params.age
+app.get('/example/:name/:age',(req,res)=>{
+    
+    // use this when is a complete must 
+    console.log(req.params);
+
+    // Use this when data is optional 
+    // req = what the client sends us 
+    // http://localhost:3000/example/pedro/99?tutorial=paramstutorial 
+    // req.query returns an object with tutorial : 'params...'
+    // http://localhost:3000/example/pedro/99?tutorial=paramstutorial&sort=byage
+    // req.query returns { tutorial: 'paramstutorial', sort: 'byage' }
+    console.log(req.query); 
+    
+    res.send(req.params.name + " : " + req.params.age);
+});
 
 app.listen(3000)
