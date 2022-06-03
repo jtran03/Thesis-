@@ -253,22 +253,28 @@
 // server.listen('3000');
 
 // Seving HTML File ------------------------------------------------------------------
-const http = require('http');
-const fs = require('fs)');
-http.createServer((req,res)=>{
+// const http = require('http');
+// const fs = require('fs');
+// http.createServer((req,res)=>{
 
-    // Create a read stream //switch with .png //.json 
-    const readStream = fs.createReadStream('./static/index.html')
+//     // Create a read stream //switch with .png //.json 
+//     const readStream = fs.createReadStream('./static/index.html')
 
-    // Write a header (let the client know what type of data im expecting)
-    // Status code: 200 is good status --> http status codes switch with png//json
-    res.writeHead(200,{'Content-type': 'text/html'});
+//     // Write a header (let the client know what type of data im expecting)
+//     // Status code: 200 is good status --> http status codes switch with png//json
+//     res.writeHead(200,{'Content-type': 'text/html'});
 
-    // Pipe html to the response  
-    readStream.pipe(res);
+//     // Pipe html to the response  
+//     readStream.pipe(res);
     
-}).listen(3000)
+// }).listen(3000)
 
 // Express js File ------------------------------------------------------------------
+const express = require('express'); 
+const app = express(); 
 
+app.get('/',(req,res)=>{
+    res.send('Hello World'); 
+})
 
+app.listen(3000)
