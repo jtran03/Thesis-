@@ -1,4 +1,10 @@
+#!/bin/bash
 # Initialisatin Script 
+
+# Set up Git
+git config --global user.email "jtran30130@gmail.com"
+git config --global user.name "John Tran"
+
 
 #### installing ROS ####
 echo "##########################################################"
@@ -35,6 +41,17 @@ nodeenv --node=16.15.1 --npm=8.11.0 ~/Desktop/VirtualEnv/env
 deactivate_node
 deactivate
 
+# Creating a nodejs script 
+cat > ~/Desktop/VirtualEnv/start_nodejs.sh <<EOF
+#!/bin/bash
+echo "Starting Nodejs Node"
+source ~/Desktop/VirtualEnv/my-python-env/bin/activate
+. ~/Desktop/VirtualEnv/env/bin/activate
+cd ~/Desktop/Thesis-/Website
+node app.js
+EOF
+chmod +x ~/Desktop/VirtualEnv/start_nodejs.sh # Make the script executable
+
 # Installing ZED 
 echo "##########################################################"
 echo "Installing ZED SDK"
@@ -59,12 +76,13 @@ git clone https://github.com/stereolabs/zed-ros-interfaces.git
 sudo apt-get install ros-melodic-rosserial-arduino -y
 
 # ZLAC8015D Packages
+sudo apt-get install -y python-pymodbus
 cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
 
 $ IMU Brick 2.0 
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
-rm -f ~/catkin_ws/tinkerforge_imu_ros/src/brick_imu_v2.cpp
-cp ~/Desktop/Thesis-/Drivers/imubrick2.0/brick_imu_v2.cpp ~/catkin_ws/tinkerforge_imu_ros/src/
+rm -f ~/catkin_ws/tinkerforge_imu_ros/src/tinkerforge_imu_ros.cpp
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/src/tinkerforge_imu_ros/src/
 
 # RPLidar 
 
