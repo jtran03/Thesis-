@@ -77,7 +77,7 @@ cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src
 $ IMU Brick 2.0 
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
 rm -f ~/catkin_ws/tinkerforge_imu_ros/src/tinkerforge_imu_ros.cpp
-cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/tinkerforge_imu_ros/src/
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/src/tinkerforge_imu_ros/src/
 
 # RPLidar 
 
