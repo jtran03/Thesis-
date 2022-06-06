@@ -86,14 +86,11 @@ echo "##############################################"
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
 rm -f ~/catkin_ws/tinkerforge_imu_ros/src/tinkerforge_imu_ros.cpp
 cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/src/tinkerforge_imu_ros/src/
-cp ~/Desktop/Thesis-/Drivers/imubrick2.0/brickv3.launch ~/catkin_ws/src/tinkerforge_imu_ros/launch/
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/brick_v3.launch ~/catkin_ws/src/tinkerforge_imu_ros/launch/
 wget https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z])/archive.key -q -O - | sudo apt-key add -
 sudo sh -c "echo 'deb https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z]) $(lsb_release -cs) main' > /etc/apt/sources.list.d/tinkerforge.list"
 sudo apt update
 sudo apt install brickd
-wget https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z])/archive.key -q -O - | sudo apt-key add -
-sudo sh -c "echo 'deb https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z]) $(lsb_release -cs) main' > /etc/apt/sources.list.d/tinkerforge.list"
-sudo apt update
 sudo apt install brickv
 echo "##############################################"
 echo "Finished installing Bricks V2 IMU drivers"
