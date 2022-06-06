@@ -107,7 +107,7 @@ cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/src
 # Web Server 
 sudo apt-get install ros-melodic-rosbridge-server -y
 
-#Installing 
+# catkin_make 
 echo "Compiling"
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
@@ -115,3 +115,20 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 source ./devel/setup.bash
 rm -rf ~/Desktop/tempfiles
 cd ~/Desktop
+
+# Install vnc server
+# Enable the VNC server to start each time you log in
+mkdir -p ~/.config/autostart
+cp /usr/share/applications/vino-server.desktop ~/.config/autostart
+
+# Configure the VNC server
+gsettings set org.gnome.Vino prompt-enabled false
+gsettings set org.gnome.Vino require-encryption false
+
+# Set a password to access the VNC server
+# Replace thepassword with your desired password
+gsettings set org.gnome.Vino authentication-methods "['vnc']"
+gsettings set org.gnome.Vino vnc-password $(echo -n '1324'|base64)
+
+# Reboot the system so that the settings take effect
+sudo reboot
