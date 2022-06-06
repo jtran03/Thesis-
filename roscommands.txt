@@ -6,7 +6,7 @@ roslaunch zed_wrapper zed2.launch
 roslaunch zed_wrapper zed2.launch svo_file:=/path/to/file.svo
 
 # Brick 2.0 
-roslaunch tinkerforge_imu_ros bricks_v2.launch
+roslaunch tinkerforge_imu_ros bricks_v2.launch 6DXK1w
 
 # Arduino Nano
 rosrun rosserial_python serial_node.py /dev/ttyUSB0
