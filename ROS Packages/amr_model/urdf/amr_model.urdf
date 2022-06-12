@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="amr_model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0666153548166181 -8.74123066152421E-07 0.0757954302608609"
+        rpy="0 0 0" />
+      <mass
+        value="3.93344073192101" />
+      <inertia
+        ixx="0.0767105445771445"
+        ixy="-2.41600659578976E-08"
+        ixz="2.00443327984094E-07"
+        iyy="0.0660340529826632"
+        iyz="7.02349783657478E-08"
+        izz="0.142107015392246" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="-0.0531974565781115 0.0326035099800614 -0.0389704586304438"
+        rpy="0 0 0" />
+      <mass
+        value="1.17798087122134" />
+      <inertia
+        ixx="0.00190945159109152"
+        ixy="2.51413146776243E-07"
+        ixz="-1.066809521554E-05"
+        iyy="0.00376775599702343"
+        iyz="-8.37410132547182E-08"
+        izz="0.00223717501474386" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_pivot"
+    type="continuous">
+    <origin
+      xyz="0.1275 0.1625 0.0565"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.0531271738645365 -0.0315006001344675 -0.0389659589321896"
+        rpy="0 0 0" />
+      <mass
+        value="1.17798132360204" />
+      <inertia
+        ixx="0.00191173816795051"
+        ixy="2.0731388079929E-05"
+        ixz="-1.05882340271274E-05"
+        iyy="0.0037654815011977"
+        iyz="1.13694479370261E-06"
+        izz="0.00223717850723632" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_pivot"
+    type="continuous">
+    <origin
+      xyz="0.1275 -0.1625 0.0565"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Link 3">
+    <inertial>
+      <origin
+        xyz="0.0210809382178084 -0.000618487630129616 -0.0286030775471721"
+        rpy="0 0 0" />
+      <mass
+        value="0.766136833511269" />
+      <inertia
+        ixx="0.00146321977454497"
+        ixy="-3.85867361679507E-06"
+        ixz="2.06355283824104E-05"
+        iyy="0.00105690031457483"
+        iyz="2.0772469061994E-07"
+        izz="0.00155044402829953" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link 3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link 3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_pivot"
+    type="continuous">
+    <origin
+      xyz="-0.25 0 0.0565"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link 3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>
