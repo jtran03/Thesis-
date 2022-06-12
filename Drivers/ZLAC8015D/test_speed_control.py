@@ -32,7 +32,8 @@ while time.time() - start_time < 25: # Wait 5 seconds
 
 	if (time.time() - start_time == 20):
 		motors.set_rpm(0,0)
-
+		
+	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
 
 # Close File
