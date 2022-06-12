@@ -6,8 +6,8 @@ motors = ZLAC8015D()
 
 motors.disable_motor()
 
-motors.set_accel_time(1000,1000)
-motors.set_decel_time(1000,1000)
+motors.set_accel_time(100,100)
+motors.set_decel_time(100,100)
 #hi
 motors.set_mode(3)
 motors.enable_motor()
