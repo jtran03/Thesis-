@@ -381,6 +381,7 @@ def callback(msg):
 	global right_rpm	
 	left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
 	right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	motors.set_rpm(int(left_rpm),int(right_rpm))
 
 def listener():
 
@@ -421,16 +422,17 @@ if __name__ == '__main__':
     motors.enable_motor()
 
     motors.set_rpm(0,0)
+	
+	rospy.spin()
+    # while not rospy.is_shutdown():
 
-    while not rospy.is_shutdown():
-
-		motors.set_rpm(int(left_rpm),int(right_rpm))
-		# rpmL, rpmR = motors.get_rpm()
-		# print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
-		rospy.sleep(0.1)
+	# 	motors.set_rpm(int(left_rpm),int(right_rpm))
+	# 	# rpmL, rpmR = motors.get_rpm()
+	# 	# print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+	# 	rospy.sleep(0.1)
 
 
-    motors.disable_motor()
+    # motors.disable_motor()
     
 
 
