@@ -407,6 +407,7 @@ motors = Controller()
 if __name__ == '__main__':
     rospy.init_node('listener', anonymous=True)
     rospy.Subscriber("turtle1/cmd_vel", Twist, callback)
+    rate = rospy.Rate(5) # ROS Rate at 5Hz
 
     # rospy.init_node('listener', anonymous=True)
     # rospy.Subscriber("turtle1/cmd_vel", String, callback)
