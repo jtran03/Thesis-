@@ -22,7 +22,7 @@ f = open("demofile2.txt", "w")
 
 # First loop #######################
 start_time = time.time()
-while time.time() - start_time < 10:
+while time.time() - start_time < 5:
 	try:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
 
@@ -32,11 +32,12 @@ while time.time() - start_time < 10:
 		motors.disable_motor()
 		break
 # Wait 5 seconds#######################
+motors.set_rpm(0,0)
 time.sleep(5)
 # Second loop #######################
+motors.set_rpm(cmds[1],cmds[0])
 start_time = time.time()
-cmds = [-5, 5]
-while time.time() - start_time < 10:
+while time.time() - start_time < 5:
 	try:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
 
