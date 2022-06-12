@@ -11,3 +11,21 @@ roslaunch tinkerforge_imu_ros bricks_v2.launch 6DXK1w
 # Arduino Nano
 rosrun rosserial_python serial_node.py /dev/ttyUSB0
 rostopic pub toggle_led std_msgs/String "a" --once
+
+###########################################################
+# Some Commands:
+source ./devel/setup.bash
+
+# ZED 2 Camera
+roslaunch zed_wrapper zed2.launch
+
+# Brick 2.0 
+roslaunch tinkerforge_imu_ros bricks_v3.launch
+
+# Node js 
+source ~/Desktop/VirtualEnv/my-python-env/bin/activate
+. ~/Desktop/VirtualEnv/env/bin/activate
+cd ~/Desktop/Thesis-
+node app.js 
+
+rosrun zlac8015d talker.py
