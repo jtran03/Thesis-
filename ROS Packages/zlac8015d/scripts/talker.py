@@ -370,12 +370,12 @@ class Controller:
 
 		return l_travelled, r_travelled
 #################################################################################################
-old_msg = None
+
 def callback(msg):
     # rospy.loginfo("Received a /cmd_vel message!")
     # rospy.loginfo("Linear Components: [%f]"%(msg.linear.x))
     # rospy.loginfo("Angular Components: [%f]"%(msg.angular.z))
-    
+    global old_msg
     # inverse kinematics
 	if old_msg != msg:
 		left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
@@ -401,7 +401,7 @@ def listener():
 #######################################################################
 WHEEL_RADIUS = 0.1715 #m
 WHEEL_DISTANCE = 0.5 #m
-
+old_msg = None
 motors = Controller()
 #######################################################################
 if __name__ == '__main__':
