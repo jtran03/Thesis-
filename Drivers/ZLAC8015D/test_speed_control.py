@@ -17,7 +17,7 @@ motors.enable_motor()
 #cmds = [150, -100]
 cmds = [5, -5]
 start_time = time.time()
-f = open("~/Desktop/demofile2.txt", "w")
+f = open("demofile2.txt", "w")
 
 while time.time() - start_time < 25: # Wait 5 seconds
 
