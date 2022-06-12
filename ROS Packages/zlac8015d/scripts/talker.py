@@ -429,6 +429,7 @@ if __name__ == '__main__':
 
 	#rpmL, rpmR = motors.get_rpm()
 	#print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+	rate.sleep()
 	
 	
     motors.disable_motor()
