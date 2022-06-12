@@ -425,9 +425,8 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
 
 		motors.set_rpm(int(left_rpm),int(right_rpm))
-
-        rpmL, rpmR = motors.get_rpm()
-        print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+		rpmL, rpmR = motors.get_rpm()
+		print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
 
         rospy.sleep(1)
 
