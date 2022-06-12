@@ -427,7 +427,7 @@ if __name__ == '__main__':
 		motors.set_rpm(int(left_rpm),int(right_rpm))
 		rpmL, rpmR = motors.get_rpm()
 		print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
-		rospy.sleep(1)
+		# rospy.sleep(1)
 
 
     motors.disable_motor()
