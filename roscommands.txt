@@ -28,4 +28,6 @@ source ~/Desktop/VirtualEnv/my-python-env/bin/activate
 cd ~/Desktop/Thesis-
 node app.js 
 
+roslaunch rosbridge_server rosbridge_websocket.launch
+
 rosrun zlac8015d talker.py
