@@ -368,7 +368,7 @@ class Controller:
 		l_travelled = (float(l_pulse)/self.cpr)*self.travel_in_one_rev  # unit in meter
 		r_travelled = (float(r_pulse)/self.cpr)*self.travel_in_one_rev  # unit in meter
 
-		return l_travelled, r_travelled
+		return l_travelled, r_travelled, l_pulse, r_pulse
 #################################################################################################
 
 def callback(msg):
@@ -423,8 +423,8 @@ if __name__ == '__main__':
    
     while not rospy.is_shutdown():
 	motors.set_rpm(int(left_rpm),int(right_rpm))
-	dL, dR = motors.get_wheels_travelled()
-	print("rpmL: {:.1f} | rpmR: {:.1f}".format(dL, dR))
+	dL, dR, deL, deR = motors.get_wheels_travelled()
+	print("deL: {:.1f} | deR: {:.1f}".format(deL, deR))
 
 	#rpmL, rpmR = motors.get_rpm()
 	#print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
