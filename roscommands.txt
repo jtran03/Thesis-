@@ -31,3 +31,5 @@ node app.js
 roslaunch rosbridge_server rosbridge_websocket.launch
 
 rosrun zlac8015d talker.py
+
+cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
