@@ -376,11 +376,12 @@ def callback(msg):
     # rospy.loginfo("Linear Components: [%f]"%(msg.linear.x))
     # rospy.loginfo("Angular Components: [%f]"%(msg.angular.z))
     # inverse kinematics
-	if global old_msg != msg: 
+	global old_msg
+	if old_msg != msg: 
 		left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
 		right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
 		motors.set_rpm(int(left_rpm),int(right_rpm))
-	global old_msg = msg
+	old_msg = msg
 
 
 def listener():
