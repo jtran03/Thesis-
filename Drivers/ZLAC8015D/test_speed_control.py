@@ -27,7 +27,7 @@ while time.time() - start_time < 10:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
 
 		f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
-		time.sleep(1)
+		#time.sleep(1)
 	except KeyboardInterrupt:
 		motors.disable_motor()
 		break
