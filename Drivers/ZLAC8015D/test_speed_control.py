@@ -47,6 +47,9 @@ while time.time() - start_time < 5:
 		motors.disable_motor()
 		break
 ###############################
+while time.time() - start_time < 5:
+			dL, dR, enL, enR = motors.get_wheels_travelled()
+			f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
 f.close()
 motors.disable_motor()
 
