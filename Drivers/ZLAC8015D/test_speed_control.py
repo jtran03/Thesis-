@@ -15,7 +15,7 @@ motors.enable_motor()
 # cmds = [140, 170]
 #cmds = [100, 50]
 #cmds = [150, -100]
-cmds = [1, -1]
+cmds = [5, -5]
 
 motors.set_rpm(cmds[0],cmds[1])
 f = open("demofile2.txt", "w")
@@ -35,6 +35,7 @@ while time.time() - start_time < 10:
 time.sleep(5)
 # Second loop #######################
 start_time = time.time()
+cmds = [-5, 5]
 while time.time() - start_time < 10:
 	try:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
