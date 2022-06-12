@@ -406,7 +406,6 @@ old_msg = None
 motors = Controller()
 #######################################################################
 if __name__ == '__main__':
-
     rospy.init_node('listener', anonymous=True)
     rospy.Subscriber("turtle1/cmd_vel", Twist, callback)
 
@@ -422,6 +421,8 @@ if __name__ == '__main__':
     motors.enable_motor()
 
     motors.set_rpm(0,0)
+    rospy.spin()
+    
     # while not rospy.is_shutdown():
 
 	# 	motors.set_rpm(int(left_rpm),int(right_rpm))
