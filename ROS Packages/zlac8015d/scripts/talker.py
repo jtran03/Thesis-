@@ -423,8 +423,12 @@ if __name__ == '__main__':
    
     while not rospy.is_shutdown():
 	motors.set_rpm(int(left_rpm),int(right_rpm))
-	rpmL, rpmR = motors.get_rpm()
-	print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+	dL, dR = motors.get_wheels_travelled()
+	print("rpmL: {:.1f} | rpmR: {:.1f}".format(dL, dR))
+
+	#rpmL, rpmR = motors.get_rpm()
+	#print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+	
 	
     motors.disable_motor()
     
