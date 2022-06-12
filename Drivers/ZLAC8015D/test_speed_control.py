@@ -33,7 +33,9 @@ while time.time() - start_time < 5:
 		break
 # Wait 5 seconds#######################
 motors.set_rpm(0,0)
-time.sleep(5)
+while time.time() - start_time < 5:
+			dL, dR, enL, enR = motors.get_wheels_travelled()
+			f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
 # Second loop #######################
 motors.set_rpm(cmds[1],cmds[0])
 start_time = time.time()
