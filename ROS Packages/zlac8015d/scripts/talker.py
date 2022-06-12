@@ -375,13 +375,10 @@ def callback(msg):
     # rospy.loginfo("Received a /cmd_vel message!")
     # rospy.loginfo("Linear Components: [%f]"%(msg.linear.x))
     # rospy.loginfo("Angular Components: [%f]"%(msg.angular.z))
-    global old_msg
     # inverse kinematics
-	if old_msg != msg:
-		left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-    	right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-    	motors.set_rpm(int(left_rpm),int(right_rpm))
-	old_msg = msg
+	left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	motors.set_rpm(int(left_rpm),int(right_rpm))
 
 
 def listener():
@@ -393,7 +390,7 @@ def listener():
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber("turtle1/cmd_vel", String, callback)
+    rospy.Subscriber("turtle1/cmd_vel", String, callback, queue_size=1)
 
     # spin() simply keeps python from exiting until this node is stopped
     #rospy.spin()
@@ -401,7 +398,7 @@ def listener():
 #######################################################################
 WHEEL_RADIUS = 0.1715 #m
 WHEEL_DISTANCE = 0.5 #m
-old_msg = None
+
 motors = Controller()
 #######################################################################
 if __name__ == '__main__':
