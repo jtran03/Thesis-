@@ -19,33 +19,20 @@ cmds = [5, -5]
 start_time = time.time()
 f = open("Matlab/demofile2.txt", "w")
 
-# Begin Recording
-while time.time() - start_time < 5: # Wait 5 seconds
-	dL, dR, enL, enR = motors.get_wheels_travelled()
-	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
-	
-# Set the motor speed
-motors.set_rpm(cmds[0],cmds[1])
+while time.time() - start_time < 25: # Wait 5 seconds
 
-# Record 5 seconds
-while time.time() - start_time < 10: # Wait 5 seconds
-	dL, dR, enL, enR = motors.get_wheels_travelled()
-	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+	if (time.time() - start_time == 5):
+		motors.set_rpm(cmds[0],cmds[1])
 
-# Set the motor speed
-motors.set_rpm(0,0)
+	if (time.time() - start_time == 10)):
+		motors.set_rpm(0,0)
 
-# Record 5 seconds
-while time.time() - start_time < 15: # Wait 5 seconds
-	dL, dR, enL, enR = motors.get_wheels_travelled()
-	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+	if (time.time() - start_time == 15)):
+		motors.set_rpm(cmds[1],cmds[0])
 
-# Set motor speed
-motors.set_rpm(cmds[1],cmds[0])
+	if (time.time() - start_time == 20)):
+		motors.set_rpm(0,0)
 
-# Record 5 seconds
-while time.time() - start_time < 20: # Wait 5 seconds
-	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
 
 # Close File
@@ -66,3 +53,32 @@ motors.disable_motor()
 # 	except KeyboardInterrupt:
 # 		motors.disable_motor()
 # 		break
+
+# # Begin Recording
+# while time.time() - start_time < 5: # Wait 5 seconds
+# 	dL, dR, enL, enR = motors.get_wheels_travelled()
+# 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+#
+# # Set the motor speed
+# motors.set_rpm(cmds[0],cmds[1])
+#
+# # Record 5 seconds
+# while time.time() - start_time < 10: # Wait 5 seconds
+# 	dL, dR, enL, enR = motors.get_wheels_travelled()
+# 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+#
+# # Set the motor speed
+# motors.set_rpm(0,0)
+#
+# # Record 5 seconds
+# while time.time() - start_time < 15: # Wait 5 seconds
+# 	dL, dR, enL, enR = motors.get_wheels_travelled()
+# 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+#
+# # Set motor speed
+# motors.set_rpm(cmds[1],cmds[0])
+#
+# # Record 5 seconds
+# while time.time() - start_time < 20: # Wait 5 seconds
+# 	dL, dR, enL, enR = motors.get_wheels_travelled()
+# 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
