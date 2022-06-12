@@ -265,9 +265,7 @@ class Controller:
 		right_bytes = self.int16Dec_to_int16Hex(R_rpm)
 
 		result = self.client.write_registers(self.L_CMD_RPM, [left_bytes, right_bytes], unit=self.ID)
-		rpmL, rpmR = motors.get_rpm()
-		print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
-		
+
 	def get_rpm(self):
 
 
@@ -427,6 +425,8 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
 
 		motors.set_rpm(int(left_rpm),int(right_rpm))
+		# rpmL, rpmR = motors.get_rpm()
+		# print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
 		rospy.sleep(0.5)
 
 
