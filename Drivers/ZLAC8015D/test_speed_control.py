@@ -16,42 +16,40 @@ motors.enable_motor()
 #cmds = [100, 50]
 #cmds = [150, -100]
 cmds = [5, -5]
+start_time = time.time()
+f = open("Matlab/demofile2.txt", "w")
 
+# Begin Recording
+time_elapsed = time.time() - start_time
+while time_elapsed < 5: # Wait 5 seconds
+	dL, dR, enL, enR = motors.get_wheels_travelled()
+	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+
+# Set the motor speed
 motors.set_rpm(cmds[0],cmds[1])
-f = open("demofile2.txt", "w")
 
-# First loop #######################
-start_time = time.time()
-while time.time() - start_time < 5:
-	try:
-		dL, dR, enL, enR = motors.get_wheels_travelled()
+# Record 5 seconds
+while time_elapsed < 10: # Wait 5 seconds
+	dL, dR, enL, enR = motors.get_wheels_travelled()
+	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
 
-		f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
-		#time.sleep(1)
-	except KeyboardInterrupt:
-		motors.disable_motor()
-		break
-# Wait 5 seconds#######################
+# Set the motor speed
 motors.set_rpm(0,0)
-while time.time() - start_time < 5:
-			dL, dR, enL, enR = motors.get_wheels_travelled()
-			f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
-# Second loop #######################
-motors.set_rpm(cmds[1],cmds[0])
-start_time = time.time()
-while time.time() - start_time < 5:
-	try:
-		dL, dR, enL, enR = motors.get_wheels_travelled()
 
-		f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
-		#time.sleep(1)
-	except KeyboardInterrupt:
-		motors.disable_motor()
-		break
-###############################
-while time.time() - start_time < 5:
-			dL, dR, enL, enR = motors.get_wheels_travelled()
-			f.write(str(time.time()) + ", " + str(enL) + ", " + str(enR) + "\n")
+# Record 5 seconds
+while time_elapsed < 15: # Wait 5 seconds
+	dL, dR, enL, enR = motors.get_wheels_travelled()
+	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+
+# Set motor speed
+motors.set_rpm(cmds[1],cmds[0])
+
+# Record 5 seconds
+while time_elapsed < 20: # Wait 5 seconds
+	dL, dR, enL, enR = motors.get_wheels_travelled()
+	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+
+# Close File
 f.close()
 motors.disable_motor()
 
