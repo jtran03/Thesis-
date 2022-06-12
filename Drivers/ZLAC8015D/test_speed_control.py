@@ -20,12 +20,12 @@ cmds = [-1, 1]
 motors.set_rpm(cmds[0],cmds[1])
 
 start_time = time.time()
-f = open("demofile2.txt", "a")
+f = open("demofile2.txt", "w")
 
 while time.time() - start_time < 10:
 	try:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
-		f.write(int(time.time()) + ", " + int(enL) + ", " + int(enR))
+		f.write(time.time() + ", " + enL + ", " + enR + "\n")
 		time.sleep(1)
 	except KeyboardInterrupt:
 		motors.disable_motor()
