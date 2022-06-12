@@ -421,7 +421,6 @@ if __name__ == '__main__':
     motors.set_mode(3)
     motors.enable_motor()
 	motors.set_rpm(0,0)
-	
 	rospy.spin()
     # while not rospy.is_shutdown():
 
