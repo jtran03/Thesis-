@@ -408,6 +408,8 @@ if __name__ == '__main__':
 
     rospy.init_node('listener', anonymous=True)
     rospy.Subscriber("turtle1/cmd_vel", Twist, callback)
+	global left_rpm
+	global right_rpm
 
     # rospy.init_node('listener', anonymous=True)
     # rospy.Subscriber("turtle1/cmd_vel", String, callback)
@@ -425,7 +427,7 @@ if __name__ == '__main__':
     while not rospy.is_shutdown():
 
 		motors.set_rpm(int(left_rpm),int(right_rpm))
-		
+
         rpmL, rpmR = motors.get_rpm()
 
         print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
