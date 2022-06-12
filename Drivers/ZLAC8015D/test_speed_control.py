@@ -20,18 +20,30 @@ cmds = [-1, 1]
 motors.set_rpm(cmds[0],cmds[1])
 
 start_time = time.time()
-i = 0
-while True:
+f = open("demofile2.txt", "a")
+
+while time.time() - start_time < 10:
 	try:
-		period = time.time() - start_time
-		rpmL, rpmR = motors.get_rpm()
-
-		print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+		dL, dR, enL, enR = motors.get_wheels_travelled()
+		f.write(time.time() + ", " + enL + ", " + enR)
 		time.sleep(1)
-
-		# if (i % 10) == 0:
-
-
 	except KeyboardInterrupt:
 		motors.disable_motor()
 		break
+
+motors.disable_motor()
+
+# while True:
+# 	try:
+# 		period = time.time() - start_time
+# 		rpmL, rpmR = motors.get_rpm()
+#
+# 		print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+# 		time.sleep(1)
+#
+# 		# if (i % 10) == 0:
+#
+#
+# 	except KeyboardInterrupt:
+# 		motors.disable_motor()
+# 		break

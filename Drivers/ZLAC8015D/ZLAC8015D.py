@@ -1,4 +1,4 @@
-# hi 
+# hi
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 import numpy as np
 
@@ -324,4 +324,4 @@ class ZLAC8015D:
 		l_travelled = (float(l_pulse)/self.cpr)*self.travel_in_one_rev  # unit in meter
 		r_travelled = (float(r_pulse)/self.cpr)*self.travel_in_one_rev  # unit in meter
 
-		return l_travelled, r_travelled
+		return l_travelled, r_travelled, l_pulse, r_pulse
