@@ -17,9 +17,9 @@ motors.enable_motor()
 #cmds = [150, -100]
 cmds = [5, -5]
 count = 0
-start_time = time.time()
 f = open("demofile2.txt", "w")
 
+start_time = time.time()
 while time.time() - start_time < 25: # Wait 5 seconds
 
 	if (time.time() - start_time < 5 and count == 0):
