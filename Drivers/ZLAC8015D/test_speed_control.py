@@ -24,6 +24,7 @@ time_elapsed = time.time() - start_time
 while time_elapsed < 5: # Wait 5 seconds
 	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+	print(time_elapsed)
 
 # Set the motor speed
 motors.set_rpm(cmds[0],cmds[1])
@@ -32,6 +33,7 @@ motors.set_rpm(cmds[0],cmds[1])
 while time_elapsed < 10: # Wait 5 seconds
 	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+	print(time_elapsed)
 
 # Set the motor speed
 motors.set_rpm(0,0)
@@ -40,6 +42,7 @@ motors.set_rpm(0,0)
 while time_elapsed < 15: # Wait 5 seconds
 	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+	print(time_elapsed)
 
 # Set motor speed
 motors.set_rpm(cmds[1],cmds[0])
@@ -48,6 +51,7 @@ motors.set_rpm(cmds[1],cmds[0])
 while time_elapsed < 20: # Wait 5 seconds
 	dL, dR, enL, enR = motors.get_wheels_travelled()
 	f.write(str(time_elapsed) + ", " + str(enL) + ", " + str(enR) + "\n")
+	print(time_elapsed)
 
 # Close File
 f.close()
