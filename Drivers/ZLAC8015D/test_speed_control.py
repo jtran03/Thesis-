@@ -22,6 +22,9 @@ f = open("demofile2.txt", "w")
 start_time = time.time()
 while time.time() - start_time < 25: # Wait 5 seconds
 
+	dL, dR, enL, enR = motors.get_wheels_travelled()
+	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+
 	if (time.time() - start_time < 5 and count == 0):
 		motors.set_rpm(cmds[0],cmds[1])
 		count = 1
@@ -38,8 +41,7 @@ while time.time() - start_time < 25: # Wait 5 seconds
 		motors.set_rpm(0,0)
 		count = 4
 
-	dL, dR, enL, enR = motors.get_wheels_travelled()
-	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
+
 
 # Close File
 f.close()
