@@ -24,13 +24,13 @@ while time.time() - start_time < 25: # Wait 5 seconds
 	if (time.time() - start_time == 5):
 		motors.set_rpm(cmds[0],cmds[1])
 
-	if (time.time() - start_time == 10)):
+	if (time.time() - start_time == 10):
 		motors.set_rpm(0,0)
 
-	if (time.time() - start_time == 15)):
+	if (time.time() - start_time == 15):
 		motors.set_rpm(cmds[1],cmds[0])
 
-	if (time.time() - start_time == 20)):
+	if (time.time() - start_time == 20):
 		motors.set_rpm(0,0)
 
 	f.write(str(time.time() - start_time) + ", " + str(enL) + ", " + str(enR) + "\n")
