@@ -78,19 +78,36 @@ sudo apt-get install ros-melodic-rosserial-arduino -y
 # ZLAC8015D Packages
 sudo apt-get install -y python-pymodbus
 cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
+usermod -a -G dialout jhtran
+usermod -a -G tty jhtran
+
+
 
 $ IMU Brick 2.0 
+echo "##############################################"
+echo "Installing Bricks V2 IMU drivers..."
+echo "##############################################"
 git clone https://github.com/SteveMacenski/tinkerforge_imu_ros.git
 rm -f ~/catkin_ws/tinkerforge_imu_ros/src/tinkerforge_imu_ros.cpp
 cp ~/Desktop/Thesis-/Drivers/imubrick2.0/tinkerforge_imu_ros.cpp ~/catkin_ws/src/tinkerforge_imu_ros/src/
+cp ~/Desktop/Thesis-/Drivers/imubrick2.0/bricks_v3.launch ~/catkin_ws/src/tinkerforge_imu_ros/launch/
+wget https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z])/archive.key -q -O - | sudo apt-key add -
+sudo sh -c "echo 'deb https://download.tinkerforge.com/apt/$(lsb_release -is | tr [A-Z] [a-z]) $(lsb_release -cs) main' > /etc/apt/sources.list.d/tinkerforge.list"
+sudo apt update
+sudo apt install brickd
+sudo apt install brickv
+echo "##############################################"
+echo "Finished installing Bricks V2 IMU drivers"
+echo "##############################################"
 
-# RPLidar 
+# RPLidar
+
 
 
 # Web Server 
 sudo apt-get install ros-melodic-rosbridge-server -y
 
-#Installing 
+# catkin_make 
 echo "Compiling"
 cd ~/catkin_ws
 rosdep install --from-paths src --ignore-src -r -y
@@ -98,3 +115,20 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 source ./devel/setup.bash
 rm -rf ~/Desktop/tempfiles
 cd ~/Desktop
+
+# Install vnc server
+# Enable the VNC server to start each time you log in
+mkdir -p ~/.config/autostart
+cp /usr/share/applications/vino-server.desktop ~/.config/autostart
+
+# Configure the VNC server
+gsettings set org.gnome.Vino prompt-enabled false
+gsettings set org.gnome.Vino require-encryption false
+
+# Set a password to access the VNC server
+# Replace thepassword with your desired password
+gsettings set org.gnome.Vino authentication-methods "['vnc']"
+gsettings set org.gnome.Vino vnc-password $(echo -n '1324'|base64)
+
+# Reboot the system so that the settings take effect
+sudo reboot

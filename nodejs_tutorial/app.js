@@ -271,11 +271,18 @@
 
 // Express js File ------------------------------------------------------------------
 const express = require('express'); 
+const path = require('path')
 const app = express(); 
+
+// using middleware (gives an alias to the static folder) -> client sees public
+app.use('/public', express.static(path.join(__dirname, 'static')))
 
 // Call back function listening at '/' --> localhost:3000
 app.get('/',(req,res)=>{
-    res.send('Hello World'); 
+
+    // res.send('Hello World'); 
+    // within the static subdirectory -> place the index.html file 
+    res.sendFile(path.join(__dirname,'static','index.html'));
 });
 
 // Call back function listening at 'localhost:3000/example'
