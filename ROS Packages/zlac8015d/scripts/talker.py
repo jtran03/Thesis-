@@ -399,8 +399,8 @@ def listener():
 #######################################################################
 WHEEL_RADIUS = 0.1715 #m
 WHEEL_DISTANCE = 0.5 #m
-left_rpm
-right_rpm
+left_rpm = 0
+right_rpm = 0
 old_msg = None
 motors = Controller()
 #######################################################################
@@ -408,6 +408,8 @@ if __name__ == '__main__':
 
     rospy.init_node('listener', anonymous=True)
     rospy.Subscriber("turtle1/cmd_vel", Twist, callback)
+	global left_rpm 
+	global right_rpm
 
     # rospy.init_node('listener', anonymous=True)
     # rospy.Subscriber("turtle1/cmd_vel", String, callback)
