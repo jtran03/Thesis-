@@ -377,8 +377,6 @@ def callback(msg):
     # rospy.loginfo("Angular Components: [%f]"%(msg.angular.z))
     
     # inverse kinematics
-    print(msg.linear.x)
-
 	print("Hello to the %d %d " %(msg.linear.x, msg.angular.z))
 	# left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
     # right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
