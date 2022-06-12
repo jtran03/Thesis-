@@ -25,12 +25,12 @@ f = open("demofile2.txt", "a")
 while time.time() - start_time < 10:
 	try:
 		dL, dR, enL, enR = motors.get_wheels_travelled()
-		f.write(time.time() + ", " + enL + ", " + enR)
+		f.write(int(time.time()) + ", " + int(enL) + ", " + int(enR))
 		time.sleep(1)
 	except KeyboardInterrupt:
 		motors.disable_motor()
 		break
-		
+
 f.close()
 motors.disable_motor()
 
