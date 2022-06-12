@@ -408,8 +408,6 @@ if __name__ == '__main__':
 
     rospy.init_node('listener', anonymous=True)
     rospy.Subscriber("turtle1/cmd_vel", Twist, callback)
-	global left_rpm 
-	global right_rpm
 
     # rospy.init_node('listener', anonymous=True)
     # rospy.Subscriber("turtle1/cmd_vel", String, callback)
