@@ -419,14 +419,16 @@ if __name__ == '__main__':
 
     motors.set_rpm(0,0)
 
-    while not rospy.is_shutdown():
+	rospy.spin()
 
-        # rpmL, rpmR = motors.get_rpm()
+    # while not rospy.is_shutdown():
 
-        # print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
-        # rospy.sleep(1)
+    #     rpmL, rpmR = motors.get_rpm()
 
-    motors.disable_motor()
+    #     print("rpmL: {:.1f} | rpmR: {:.1f}".format(rpmL,rpmR))
+    #     rospy.sleep(1)
+
+    # motors.disable_motor()
     
 
 
