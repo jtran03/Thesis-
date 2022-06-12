@@ -30,7 +30,8 @@ while time.time() - start_time < 10:
 	except KeyboardInterrupt:
 		motors.disable_motor()
 		break
-
+		
+f.close()
 motors.disable_motor()
 
 # while True:
