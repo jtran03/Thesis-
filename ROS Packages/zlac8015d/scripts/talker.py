@@ -379,8 +379,8 @@ def callback(msg):
 
 	global left_rpm
 	global right_rpm	
-	left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	right_rpm = -(msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	left_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	right_rpm = -(msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
 	
 def listener():
 
