@@ -102,6 +102,9 @@ echo "##############################################"
 
 # RPLidar
 
+#Install moveit
+sudo apt install ros-melodic-moveit
+
 
 
 # Web Server 
