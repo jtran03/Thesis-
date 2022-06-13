@@ -83,7 +83,7 @@ usermod -a -G tty jhtran
 
 
 
-$ IMU Brick 2.0 
+# IMU Brick 2.0 
 echo "##############################################"
 echo "Installing Bricks V2 IMU drivers..."
 echo "##############################################"
@@ -105,7 +105,8 @@ echo "##############################################"
 #Install moveit
 sudo apt install ros-melodic-moveit
 
-
+# Copy urdf file over 
+cp -R ~/Desktop/Thesis-/ROS\ Packages/amr_urdf ~/catkin_ws/src 
 
 # Web Server 
 sudo apt-get install ros-melodic-rosbridge-server -y
