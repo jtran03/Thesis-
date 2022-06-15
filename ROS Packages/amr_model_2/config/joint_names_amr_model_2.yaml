@@ -1,1 +1,0 @@
-controller_joint_names: ['', 'Left_Joint', 'Left_Drive_Joint', 'Left_Swivel_Joint', 'Left_Castor_Joint', 'Right_Joint', 'Right_Drive_Joint', 'Right_Swivel_Joint', 'Right_Castor_Joint', 'Back_Joint', 'Back_Left_Swivel_Joint', 'Back_Left_Castor_Joint', 'Back_RIght_Swivel_Joint', 'Back_Right_Castor_Joint', ]

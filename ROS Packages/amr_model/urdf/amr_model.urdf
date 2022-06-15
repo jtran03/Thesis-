@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="amr_model">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.442950215261077 -4.39643166982862E-07 0.0515497291875238"
+        rpy="0 0 0" />
+      <mass
+        value="3.86321584157732" />
+      <inertia
+        ixx="0.0766853600125674"
+        ixy="-2.41600659498511E-08"
+        ixz="1.25967847791515E-07"
+        iyy="0.0660073963634588"
+        iyz="3.29972385469942E-08"
+        izz="0.142096939827593" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_1">
+    <inertial>
+      <origin
+        xyz="0.0423768341313687 0.0147804595506362 8.08649501160552E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.173725014067308" />
+      <inertia
+        ixx="6.83618894957756E-05"
+        ixy="4.8279421630596E-07"
+        ixz="-3.13724787392648E-12"
+        iyy="0.000387124808021968"
+        iyz="1.65986931834144E-11"
+        izz="0.000356430302585498" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Joint"
+    type="continuous">
+    <origin
+      xyz="0.502653333333308 -0.162499999999996 0.0314999999999995"
+      rpy="1.5707963267949 0.00133177359255844 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_1" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_1_1">
+    <inertial>
+      <origin
+        xyz="-0.015649341301103 5.45616450586817E-06 -0.0174416193110757"
+        rpy="0 0 0" />
+      <mass
+        value="0.0403332315890109" />
+      <inertia
+        ixx="5.12334523253959E-05"
+        ixy="-9.37038844409893E-10"
+        ixz="-1.08703995748816E-05"
+        iyy="4.78543560346244E-05"
+        iyz="5.68285775569418E-09"
+        izz="4.83606215592078E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Swivel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.123 0.00032762 0.0005"
+      rpy="-1.5708 0 0.0013318" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_1_1" />
+    <axis
+      xyz="-0.0013318 0 1" />
+  </joint>
+  <link
+    name="Link_1_1_1">
+    <inertial>
+      <origin
+        xyz="-2.05391259555654E-15 -6.42206454681826E-10 0.00100000000000089"
+        rpy="0 0 0" />
+      <mass
+        value="0.16139609361482" />
+      <inertia
+        ixx="0.00022051365922702"
+        ixy="8.12434711942375E-20"
+        ixz="7.39889896871532E-19"
+        iyy="0.000220513659227101"
+        iyz="-1.26054264590441E-10"
+        izz="0.000416796707486786" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Castor_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.041899 2.0253E-05 -0.075556"
+      rpy="1.5708 0 -0.00048222" />
+    <parent
+      link="Link_1_1" />
+    <child
+      link="Link_1_1_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_1_2">
+    <inertial>
+      <origin
+        xyz="-7.39738107990995E-08 -2.48867591529089E-06 0.000304461891686092"
+        rpy="0 0 0" />
+      <mass
+        value="0.697781408700203" />
+      <inertia
+        ixx="0.00153904892917393"
+        ixy="1.26936781721252E-09"
+        ixz="4.3078441637201E-10"
+        iyy="0.00153902361959498"
+        iyz="-9.90271767073295E-08"
+        izz="0.00291644521274641" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_1_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Drive_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.12737 -0.050589 0.054439"
+      rpy="0 0 0.0013318" />
+    <parent
+      link="Link_1" />
+    <child
+      link="Link_1_2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_2">
+    <inertial>
+      <origin
+        xyz="-0.0146675345062314 -0.042416052244819 -8.08649775942971E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.173725014029" />
+      <inertia
+        ixx="0.00038711997414245"
+        ixy="1.33182342176608E-06"
+        ixz="1.66065577866214E-11"
+        iyy="6.83667228255423E-05"
+        iyz="-3.0876230635638E-12"
+        izz="0.000356430302039067" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Joint"
+    type="continuous">
+    <origin
+      xyz="0.50265 0.1625 0.0315"
+      rpy="-1.5708 1.5671 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_2_1">
+    <inertial>
+      <origin
+        xyz="0.000153795856888184 -0.0156717374894823 -0.0174207553718233"
+        rpy="0 0 0" />
+      <mass
+        value="0.0403332628948366" />
+      <inertia
+        ixx="4.78545213370316E-05"
+        ixy="-3.31052102079292E-08"
+        ixz="1.04816393475147E-07"
+        iyy="5.12040810281828E-05"
+        iyz="-1.08736175434666E-05"
+        izz="4.83895328568432E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Swivel_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.123 -0.0005"
+      rpy="3.1416 1.5708 0" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_2_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_2_1_1">
+    <inertial>
+      <origin
+        xyz="-8.88178419700125E-16 -9.67907146415259E-06 0.000999953156688715"
+        rpy="0 0 0" />
+      <mass
+        value="0.161396093614819" />
+      <inertia
+        ixx="0.000220513659227019"
+        ixy="1.74250408725507E-18"
+        ixz="-1.74943965831605E-16"
+        iyy="0.000220532047891408"
+        iyz="-1.89974865622156E-06"
+        izz="0.000416778318822475" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Castor_Joint"
+    type="continuous">
+    <origin
+      xyz="0.00040652 -0.041998 -0.0755"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="Link_2_1" />
+    <child
+      link="Link_2_1_1" />
+    <axis
+      xyz="0 -0.0096791 0.99995" />
+  </joint>
+  <link
+    name="Link_2_2">
+    <inertial>
+      <origin
+        xyz="2.33906989494104E-06 -6.24109719515875E-07 0.000124634336547025"
+        rpy="0 0 0" />
+      <mass
+        value="0.697781690815544" />
+      <inertia
+        ixx="0.00153902430319801"
+        ixy="4.53266998579636E-09"
+        ixz="9.65391682607144E-08"
+        iyy="0.0015390482977882"
+        iyz="-2.21802909621648E-08"
+        izz="0.00291644526246095" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_2_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Drive_Joint"
+    type="continuous">
+    <origin
+      xyz="0.05025 0.1275 0.054619"
+      rpy="0 0 3.1416" />
+    <parent
+      link="Link_2" />
+    <child
+      link="Link_2_2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_3">
+    <inertial>
+      <origin
+        xyz="-9.95247828859958E-05 -0.0183315979170866 -0.000116576900137111"
+        rpy="0 0 0" />
+      <mass
+        value="0.241012788592428" />
+      <inertia
+        ixx="9.58272358902904E-05"
+        ixy="4.68012614701446E-06"
+        ixz="4.72107908869162E-20"
+        iyy="0.000957840288418689"
+        iyz="-2.71592051700691E-21"
+        izz="0.000880790277251432" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_Joint"
+    type="continuous">
+    <origin
+      xyz="0.12515 0 0.0315"
+      rpy="-1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Link_3" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link_3_1">
+    <inertial>
+      <origin
+        xyz="-0.0156565651695057 -0.000704383640284689 -0.0174207539275919"
+        rpy="0 0 0" />
+      <mass
+        value="0.0403333142624228" />
+      <inertia
+        ixx="5.11975030370418E-05"
+        ixy="1.50651085935214E-07"
+        ixz="-1.08631288158528E-05"
+        iyy="4.78607685663797E-05"
+        iyz="-4.86861244124478E-07"
+        izz="4.83894737075702E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Swivel_Back_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.1605 0.00087136 -0.0005"
+      rpy="1.5762 1.5708 0" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_3_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_3_1_1">
+    <inertial>
+      <origin
+        xyz="-3.40005801291454E-16 1.11022302462516E-16 0.000999999999999557"
+        rpy="0 0 0" />
+      <mass
+        value="0.16139609361482" />
+      <inertia
+        ixx="0.00022051365922702"
+        ixy="-6.43215644321234E-21"
+        ixz="-7.14048774535375E-19"
+        iyy="0.00022051365922702"
+        iyz="-1.03253316270299E-18"
+        izz="0.000416796707486867" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_1_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_1_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Back_Castor_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.041958 -0.0018821 -0.0755"
+      rpy="1.5708 -0.36995 0.044827" />
+    <parent
+      link="Link_3_1" />
+    <child
+      link="Link_3_1_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_3_2">
+    <inertial>
+      <origin
+        xyz="0.000158980046576329 -0.015671727940056 -0.0174207659637889"
+        rpy="0 0 0" />
+      <mass
+        value="0.0403332479388766" />
+      <inertia
+        ixx="4.78546494318326E-05"
+        ixy="-3.4219563633511E-08"
+        ixz="1.08424238159814E-07"
+        iyy="5.12041119513132E-05"
+        iyz="-1.08736229662535E-05"
+        izz="4.83895667157239E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Swivel_Back_Joint"
+    type="continuous">
+    <origin
+      xyz="0.1605 -0.00087136 -0.0005"
+      rpy="-1.5708 0 3.1362" />
+    <parent
+      link="Link_3" />
+    <child
+      link="Link_3_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Link_3_2_1">
+    <inertial>
+      <origin
+        xyz="1.11022302462516E-16 2.60902410786912E-15 0.000999999999999723"
+        rpy="0 0 0" />
+      <mass
+        value="0.161396093614819" />
+      <inertia
+        ixx="0.000220513659227019"
+        ixy="-1.47808903657101E-20"
+        ixz="3.22825432022295E-19"
+        iyy="0.000220513659227019"
+        iyz="-9.99498877760074E-20"
+        izz="0.000416796707486865" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_2_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://amr_model/meshes/Link_3_2_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Back_Castor_Joint"
+    type="continuous">
+    <origin
+      xyz="0.00042046 -0.041998 -0.0755"
+      rpy="1.5708 -1.5051 -1.5608" />
+    <parent
+      link="Link_3_2" />
+    <child
+      link="Link_3_2_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>
