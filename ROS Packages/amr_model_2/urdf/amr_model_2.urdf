@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="amr_model">
+  name="amr_model_2">
   <link
     name="base_link">
     <inertial>
@@ -14,10 +14,10 @@
         value="3.76763445588817" />
       <inertia
         ixx="0.0766714321789767"
-        ixy="-2.41600659570515E-08"
-        ixz="1.25967847791081E-07"
+        ixy="-2.41600659565851E-08"
+        ixz="1.25967847791078E-07"
         iyy="0.0659904252719117"
-        iyz="3.29972382668583E-08"
+        iyz="3.29972382668585E-08"
         izz="0.142086055251958" />
     </inertial>
     <visual>
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/base_link.STL" />
+          filename="package://amr_model_2/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/base_link.STL" />
+          filename="package://amr_model_2/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,16 +48,16 @@
     name="Left_Link">
     <inertial>
       <origin
-        xyz="0.0424175601198811 -0.0146631732128587 -8.08649341391687E-05"
+        xyz="0.0424175601198812 -0.0146631732128588 -8.08649341392242E-05"
         rpy="0 0 0" />
       <mass
         value="0.173725014087237" />
       <inertia
         ixx="6.83670000756998E-05"
         ixy="-1.36459818436927E-06"
-        ixz="3.09436550728742E-12"
+        ixz="3.09436550712331E-12"
         iyy="0.000387119697750092"
-        iyz="1.66075236482811E-11"
+        iyz="1.6607523648289E-11"
         izz="0.00035643030289182" />
     </inertial>
     <visual>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Link.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -89,7 +89,7 @@
     type="continuous">
     <origin
       xyz="0.12751 0.1625 0.052812"
-      rpy="-1.5708 0 0" />
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -101,16 +101,16 @@
     name="Left_Drive_Link">
     <inertial>
       <origin
-        xyz="8.8596630226645E-07 -2.32680975759125E-06 0.000143413644960233"
+        xyz="8.8596630226645E-07 -2.32680975753574E-06 0.000143413644960233"
         rpy="0 0 0" />
       <mass
         value="0.697781408700204" />
       <inertia
         ixx="0.00153904430871612"
-        ixy="9.85923455302605E-09"
-        ixz="3.83699405213027E-08"
+        ixy="9.85923455302617E-09"
+        ixz="3.83699405213039E-08"
         iyy="0.00153902824005279"
-        iyz="-9.12924693848699E-08"
+        iyz="-9.12924693848684E-08"
         izz="0.00291644521274641" />
     </inertial>
     <visual>
@@ -119,7 +119,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Drive_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Drive_Link.STL" />
       </geometry>
       <material
         name="">
@@ -133,7 +133,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Drive_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Drive_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -154,16 +154,16 @@
     name="Left_Swivel_Link">
     <inertial>
       <origin
-        xyz="-0.0156743661652612 4.89580691376279E-07 0.0174191529510674"
+        xyz="-0.0156743661652612 4.89580691320768E-07 0.0174191529510675"
         rpy="0 0 0" />
       <mass
         value="0.040333223205091" />
       <inertia
-        ixx="5.12022824287162E-05"
-        ixy="-3.43232937171794E-10"
+        ixx="5.12022824287161E-05"
+        ixy="-3.43232937174314E-10"
         ixz="1.08744968478184E-05"
         iyy="4.78544041648648E-05"
-        iyz="1.55991931416466E-09"
+        iyz="1.55991931416432E-09"
         izz="4.83918318766484E-05" />
     </inertial>
     <visual>
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Swivel_Link.STL" />
       </geometry>
       <material
         name="">
@@ -186,7 +186,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Swivel_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -195,7 +195,7 @@
     type="continuous">
     <origin
       xyz="0.123 1.2647E-05 -0.0005"
-      rpy="-1.5708 0 0" />
+      rpy="0 0 0" />
     <parent
       link="Left_Link" />
     <child
@@ -207,14 +207,14 @@
     name="Left_Castor_Link">
     <inertial>
       <origin
-        xyz="2.77555756156289E-15 9.43689570931383E-16 5.55111512312578E-17"
+        xyz="2.77555756156289E-15 9.99200722162641E-16 5.55111512312578E-17"
         rpy="0 0 0" />
       <mass
         value="0.16139609361482" />
       <inertia
         ixx="0.00022051365922702"
-        ixy="-3.00266562356749E-20"
-        ixz="5.1148034061536E-19"
+        ixy="-3.00233475132247E-20"
+        ixz="5.11480340615384E-19"
         iyy="0.000220513659227019"
         iyz="-2.57505836012881E-19"
         izz="0.000416796707486866" />
@@ -225,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Castor_Link.STL" />
       </geometry>
       <material
         name="">
@@ -239,7 +239,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Left_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Left_Castor_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -248,7 +248,7 @@
     type="continuous">
     <origin
       xyz="-0.042008 0 0.075496"
-      rpy="-1.5708 0.00010282 0.00010282" />
+      rpy="0 0 0" />
     <parent
       link="Left_Swivel_Link" />
     <child
@@ -260,16 +260,16 @@
     name="Right_Link">
     <inertial>
       <origin
-        xyz="-0.0424147240243435 -0.0146713748826112 8.08649356075497E-05"
+        xyz="-0.0424147240243436 -0.0146713748826112 8.08649356075497E-05"
         rpy="0 0 0" />
       <mass
         value="0.173725014087434" />
       <inertia
         ixx="6.83664842732682E-05"
         ixy="1.30296341288277E-06"
-        ixz="3.09735740214769E-12"
+        ixz="3.09735740186209E-12"
         iyy="0.000387120213534152"
-        iyz="-1.66069196324517E-11"
+        iyz="-1.66069196324567E-11"
         izz="0.000356430302873432" />
     </inertial>
     <visual>
@@ -278,7 +278,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Link.STL" />
       </geometry>
       <material
         name="">
@@ -292,7 +292,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -300,8 +300,8 @@
     name="Right_Joint"
     type="continuous">
     <origin
-      xyz="0.12751 -0.1625 0.052812"
-      rpy="-1.5708 0 3.1416" />
+      xyz="0.127506259223797 -0.162500000000007 0.0528119631753412"
+      rpy="-1.5707963267949 0 3.14159265358979" />
     <parent
       link="base_link" />
     <child
@@ -313,16 +313,16 @@
     name="Right_Drive_Link">
     <inertial>
       <origin
-        xyz="-2.12390212939173E-06 -1.29923811592603E-06 -0.000905415201253534"
+        xyz="-2.1239021292252E-06 -1.29923811575949E-06 -0.0009054152012542"
         rpy="0 0 0" />
       <mass
         value="0.697781408700203" />
       <inertia
         ixx="0.00153903235335043"
-        ixy="-1.20987802471334E-08"
+        ixy="-1.2098780247133E-08"
         ixz="-8.26668778021354E-08"
         iyy="0.00153904019541848"
-        iyz="-5.45229732749371E-08"
+        iyz="-5.45229732749373E-08"
         izz="0.00291644521274641" />
     </inertial>
     <visual>
@@ -331,7 +331,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Drive_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Drive_Link.STL" />
       </geometry>
       <material
         name="">
@@ -345,7 +345,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Drive_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Drive_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -366,17 +366,17 @@
     name="Right_Swivel_Link">
     <inertial>
       <origin
-        xyz="-3.52005563497571E-06 -0.0156709948782571 0.0174221833015173"
+        xyz="0.000413779301244421 0.0156685882902514 0.0174193359997007"
         rpy="0 0 0" />
       <mass
-        value="0.0403332244174408" />
+        value="0.0403332724407856" />
       <inertia
-        ixx="4.78544002007354E-05"
-        ixy="9.90802593364523E-10"
-        ixz="5.42830662779955E-10"
-        iyy="5.120648517261E-05"
-        iyz="1.08739510807914E-05"
-        izz="4.83876252745461E-05" />
+        ixx="4.78565029791964E-05"
+        ixy="8.8624659607972E-08"
+        ixz="-2.85213998640707E-07"
+        iyy="5.12000712496557E-05"
+        iyz="-1.08706206871853E-05"
+        izz="4.83914901628397E-05" />
     </inertial>
     <visual>
       <origin
@@ -384,7 +384,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Swivel_Link.STL" />
       </geometry>
       <material
         name="">
@@ -398,7 +398,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Swivel_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -406,30 +406,30 @@
     name="Right_Swivel_Joint"
     type="continuous">
     <origin
-      xyz="-0.123 -1.1136E-05 0.0005"
-      rpy="1.5708 1.5708 0" />
+      xyz="-0.122999999495851 -1.11364478370679E-05 0.000500000000000833"
+      rpy="1.5707963267949 1.5707963267949 0" />
     <parent
       link="Right_Link" />
     <child
       link="Right_Swivel_Link" />
     <axis
-      xyz="0 -9.054E-05 -1" />
+      xyz="0 -9.05402263184918E-05 -0.999999995901234" />
   </joint>
   <link
     name="Right_Castor_Link">
     <inertial>
       <origin
-        xyz="-1.83186799063151E-15 1.0547118733939E-15 -2.22044604925031E-16"
+        xyz="7.60406684230386E-06 0.0839855070156855 0.00110705119946175"
         rpy="0 0 0" />
       <mass
-        value="0.161396093614819" />
+        value="0.161396093614818" />
       <inertia
-        ixx="0.000220513659227019"
-        ixy="1.45676746770714E-16"
-        ixz="-1.60903631387441E-12"
-        iyy="0.000220513660836056"
-        iyz="-1.77715114662682E-08"
-        izz="0.000416796705877829" />
+        ixx="0.000220513659228128"
+        ixy="1.22623154919319E-11"
+        ixz="-4.66657817760277E-10"
+        iyy="0.000220649094225962"
+        iyz="-5.15414898840514E-06"
+        izz="0.000416661272486809" />
     </inertial>
     <visual>
       <origin
@@ -437,7 +437,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Castor_Link.STL" />
       </geometry>
       <material
         name="">
@@ -451,7 +451,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Right_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Right_Castor_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -460,7 +460,7 @@
     type="continuous">
     <origin
       xyz="0 -0.041993 0.075504"
-      rpy="0 1.5708 0" />
+      rpy="0 0 0" />
     <parent
       link="Right_Swivel_Link" />
     <child
@@ -472,16 +472,16 @@
     name="Back_Link">
     <inertial>
       <origin
-        xyz="-0.0183318680811727 -1.75000319568852E-07 0.000116576900137087"
+        xyz="-0.0183318680811729 -1.75000319790897E-07 0.000116576900137094"
         rpy="0 0 0" />
       <mass
         value="0.241012788592428" />
       <inertia
         ixx="0.000957865697392896"
-        ixy="8.22946424166359E-09"
-        ixz="2.93457156755223E-20"
+        ixy="8.2294642416638E-09"
+        ixz="2.93429259516477E-20"
         iyy="9.58018269160901E-05"
-        iyz="8.38766352001865E-20"
+        iyz="8.33289584662116E-20"
         izz="0.000880790277251438" />
     </inertial>
     <visual>
@@ -490,7 +490,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Link.STL" />
       </geometry>
       <material
         name="">
@@ -504,7 +504,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -512,8 +512,8 @@
     name="Back_Joint"
     type="continuous">
     <origin
-      xyz="-0.24999 0 0.052812"
-      rpy="0 1.5708 0" />
+      xyz="-0.249993740776166 0 0.0528119631753474"
+      rpy="0 1.5707963267949 0" />
     <parent
       link="base_link" />
     <child
@@ -525,16 +525,16 @@
     name="Back_Left_Swivel_Link">
     <inertial>
       <origin
-        xyz="0.0156725598865823 -2.26780169720886E-06 0.0174207634206766"
+        xyz="0.0156725598865823 -2.26780169731988E-06 0.0174207634206767"
         rpy="0 0 0" />
       <mass
         value="0.0403332300930945" />
       <inertia
         ixx="5.12045014882558E-05"
-        ixy="-5.82561977434662E-10"
-        ixz="-1.08741942222741E-05"
+        ixy="-5.82561977433272E-10"
+        ixz="-1.08741942222742E-05"
         iyy="4.78543707256812E-05"
-        iyz="-4.45796429472309E-10"
+        iyz="-4.45796429473202E-10"
         izz="4.83895848910092E-05" />
     </inertial>
     <visual>
@@ -543,7 +543,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Left_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Left_Swivel_Link.STL" />
       </geometry>
       <material
         name="">
@@ -557,7 +557,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Left_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Left_Swivel_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -584,10 +584,10 @@
         value="0.16139609361482" />
       <inertia
         ixx="0.00022051365922702"
-        ixy="3.55753837846806E-20"
-        ixz="-1.2786300707373E-19"
+        ixy="2.96461531539005E-20"
+        ixz="-1.27704175471423E-19"
         iyy="0.00022051365922702"
-        iyz="-5.29139166044046E-20"
+        iyz="-5.29236359766021E-20"
         izz="0.000416796707486867" />
     </inertial>
     <visual>
@@ -596,7 +596,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Left_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Left_Castor_Link.STL" />
       </geometry>
       <material
         name="">
@@ -610,7 +610,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Left_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Left_Castor_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -631,14 +631,14 @@
     name="Back_RIght_Swivel_Link">
     <inertial>
       <origin
-        xyz="0.000138233161245949 0.0156719328859507 0.0174207598258361"
+        xyz="0.00013823316124606 0.0156719328859507 0.0174207598258361"
         rpy="0 0 0" />
       <mass
         value="0.0403332394157405" />
       <inertia
         ixx="4.78545822536645E-05"
-        ixy="2.96438047832292E-08"
-        ixz="-9.38941807158739E-08"
+        ixy="2.96438047832296E-08"
+        ixz="-9.3894180715874E-08"
         iyy="5.12042103043664E-05"
         iyz="-1.08737688270406E-05"
         izz="4.83895716899988E-05" />
@@ -649,7 +649,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_RIght_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_RIght_Swivel_Link.STL" />
       </geometry>
       <material
         name="">
@@ -663,7 +663,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_RIght_Swivel_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_RIght_Swivel_Link.STL" />
       </geometry>
     </collision>
   </link>
@@ -690,10 +690,10 @@
         value="0.161396093614819" />
       <inertia
         ixx="0.000220513659227019"
-        ixy="-6.7762635780344E-20"
-        ixz="-5.08239827482435E-19"
+        ixy="-9.48676900924816E-20"
+        ixz="-5.08133948364028E-19"
         iyy="0.000220513659227019"
-        iyz="-8.72024141511059E-20"
+        iyz="-8.70965350326991E-20"
         izz="0.000416796707486865" />
     </inertial>
     <visual>
@@ -702,7 +702,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Right_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Right_Castor_Link.STL" />
       </geometry>
       <material
         name="">
@@ -716,7 +716,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://amr_model/meshes/Back_Right_Castor_Link.STL" />
+          filename="package://amr_model_2/meshes/Back_Right_Castor_Link.STL" />
       </geometry>
     </collision>
   </link>
