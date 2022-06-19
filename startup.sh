@@ -10,5 +10,6 @@ gnome-terminal -- bash -c "roslaunch rosbridge_server rosbridge_websocket.launch
 
 gnome-terminal -- bash -c "rosrun zlac8015d talker.py"
 
+gnome-terminal -- bash -c "~/Desktop/VirtualEnv/start_nodejs.sh"
 
 #gnome-terminal -- "source /opt/ros/melodic/setup.bash; source ~/catkin_ws/devel/setup.bash;" 
