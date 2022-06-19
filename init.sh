@@ -134,5 +134,8 @@ gsettings set org.gnome.Vino require-encryption false
 gsettings set org.gnome.Vino authentication-methods "['vnc']"
 gsettings set org.gnome.Vino vnc-password $(echo -n '1324'|base64)
 
+# Ssh pass
+sudo apt-get install sshpass
+
 # Reboot the system so that the settings take effect
 sudo reboot
