@@ -22,5 +22,5 @@ gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jht
 gnome-terminal -- bash -c "~/Desktop/VirtualEnv/start_nodejs.sh"
 
 # RVIZ
-rosrun rviz rviz ~/Desktop/test.rviz
+rosrun rviz rviz -d ~/Desktop/test.rviz
 #gnome-terminal -- "source /opt/ros/melodic/setup.bash; source ~/catkin_ws/devel/setup.bash;" 
