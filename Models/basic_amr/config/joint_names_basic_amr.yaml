@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'left_wheel_hinge', 'right_wheel_hinge', 'castor_FL_swivel_hinge', 'castor_FL_wheel_hinge', 'castor_FR_swivel_hinge', 'castor_FR_wheel_hinge', 'castor_BL_swivel_hinge', 'castor_BL_wheel_hinge', 'castor_BR_swivel_hinge', 'castor_BR_wheel_hinge', ]
