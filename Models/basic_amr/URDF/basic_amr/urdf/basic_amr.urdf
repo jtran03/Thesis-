@@ -8,17 +8,17 @@
     name="base_link">
     <inertial>
       <origin
-        xyz="5.63544150623189E-06 0.0585613447753297 0.0700286342155076"
+        xyz="5.6354E-06 0.058561 -0.061471"
         rpy="0 0 0" />
       <mass
-        value="4.45218985232546" />
+        value="4.4522" />
       <inertia
-        ixx="0.066816643851739"
-        ixy="2.6775471642659E-08"
-        ixz="-1.88375583896193E-07"
-        iyy="0.0777035053703118"
-        iyz="2.79926678789715E-06"
-        izz="0.143829093805577" />
+        ixx="0.066817"
+        ixy="2.6775E-08"
+        ixz="-1.8838E-07"
+        iyy="0.077704"
+        iyz="2.7993E-06"
+        izz="0.14383" />
     </inertial>
     <visual>
       <origin
@@ -31,7 +31,7 @@
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
@@ -45,19 +45,72 @@
     </collision>
   </link>
   <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="-8.82677809340572E-08 1.8768321230489E-08 -1.07619964537509E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.671865219229547" />
+      <inertia
+        ixx="0.00152382830265562"
+        ixy="-2.98413960790938E-09"
+        ixz="7.0794178323055E-10"
+        iyy="0.00152383789327469"
+        iyz="-3.4692868726286E-10"
+        izz="0.00291423163667509" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_hinge"
+    type="continuous">
+    <origin
+      xyz="0.2231 0 -0.13125"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
     name="left_wheel">
     <inertial>
       <origin
-        xyz="5.10511359851269E-08 -7.44125832381629E-08 1.07619964537509E-05"
+        xyz="-7.44125831508846E-08 5.10511359879786E-08 -1.07619964536954E-05"
         rpy="0 0 0" />
       <mass
         value="0.671865219229546" />
       <inertia
-        ixx="0.00152383860116951"
-        ixy="1.27075746565451E-09"
-        ixz="5.90967105714866E-10"
-        iyy="0.00152382759476079"
-        iyz="-5.2182271391632E-10"
+        ixx="0.00152382759476079"
+        ixy="1.27075746563697E-09"
+        ixz="5.21822709312216E-10"
+        iyy="0.00152383860116951"
+        iyz="-5.90967101462215E-10"
         izz="0.00291423163667508" />
     </inertial>
     <visual>
@@ -88,83 +141,30 @@
     name="left_wheel_hinge"
     type="continuous">
     <origin
-      xyz="-0.223099999999995 0 0.00024999999999966"
-      rpy="1.5707963267949 0 1.5707963267949" />
+      xyz="-0.2231 0 -0.13125"
+      rpy="3.1416 -1.5708 0" />
     <parent
       link="base_link" />
     <child
       link="left_wheel" />
     <axis
-      xyz="0 0 1" />
-  </joint>
-  <link
-    name="right_wheel">
-    <inertial>
-      <origin
-        xyz="-8.41754692944086E-08 3.25260111112033E-08 -1.07619964538619E-05"
-        rpy="0 0 0" />
-      <mass
-        value="0.671865219229547" />
-      <inertia
-        ixx="0.0015238276094369"
-        ixy="-1.3327191823203E-09"
-        ixz="6.43980179873225E-10"
-        iyy="0.0015238385864934"
-        iyz="-4.54786339412247E-10"
-        izz="0.00291423163667508" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/right_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/right_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="right_wheel_hinge"
-    type="continuous">
-    <origin
-      xyz="0.223100000000009 0 0.000249999999998834"
-      rpy="1.5707963267949 0 1.5707963267949" />
-    <parent
-      link="base_link" />
-    <child
-      link="right_wheel" />
-    <axis
       xyz="0 0 -1" />
   </joint>
   <link
-    name="castor_FL_swivel">
+    name="swivel_FR">
     <inertial>
       <origin
-        xyz="2.10123437097143E-06 -0.0156725676431652 -0.0264207637961362"
+        xyz="2.10863983640674E-06 -0.0155771680202315 -0.0262317388766869"
         rpy="0 0 0" />
       <mass
-        value="0.0403332267042345" />
+        value="0.0401879953591251" />
       <inertia
-        ixx="4.78543883362956E-05"
-        ixy="-6.870110717323E-10"
-        ixz="-4.41251168380278E-10"
-        iyy="5.120451005742E-05"
-        iyz="-1.08742014136651E-05"
-        izz="4.83895908673668E-05" />
+        ixx="4.73544910464119E-05"
+        ixy="-6.88516904099088E-10"
+        ixz="-4.43617183456399E-10"
+        iyy="5.07216320491779E-05"
+        iyz="-1.0672961583097E-05"
+        izz="4.82016109048881E-05" />
     </inertial>
     <visual>
       <origin
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_FL_swivel.STL" />
+          filename="package://basic_amr/meshes/swivel_FR.STL" />
       </geometry>
       <material
         name="">
@@ -186,143 +186,37 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_FL_swivel.STL" />
+          filename="package://basic_amr/meshes/swivel_FR.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="castor_FL_swivel_hinge"
+    name="swivel_FR_hinge"
     type="continuous">
     <origin
-      xyz="-0.161999999999996 0.250499999999998 0.0595000000000003"
-      rpy="0 0 -0.00162492292127055" />
-    <parent
-      link="base_link" />
-    <child
-      link="castor_FL_swivel" />
-    <axis
-      xyz="0 0 1" />
-  </joint>
-  <link
-    name="castor_FL_wheel">
-    <inertial>
-      <origin
-        xyz="-2.77555756156289E-17 3.46944695195361E-18 5.55111512312578E-17"
-        rpy="0 0 0" />
-      <mass
-        value="0.16139609361482" />
-      <inertia
-        ixx="0.000220514177487319"
-        ixy="1.66946145790432E-20"
-        ixz="-3.18944262751873E-07"
-        iyy="0.00022051365922702"
-        iyz="-5.89663587417203E-19"
-        izz="0.000416796189226567" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_FL_wheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_FL_wheel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="castor_FL_wheel_hinge"
-    type="continuous">
-    <origin
-      xyz="-0.000999999999999973 -0.042 -0.0845"
-      rpy="1.5707963267949 0 1.57242124971617" />
-    <parent
-      link="castor_FL_swivel" />
-    <child
-      link="castor_FL_wheel" />
-    <axis
-      xyz="0.00162492220620229 0 -0.99999867981304" />
-  </joint>
-  <link
-    name="castor_FR_swivel">
-    <inertial>
-      <origin
-        xyz="2.10104722978E-06 -0.0156725739371237 -0.0264207645470235"
-        rpy="0 0 0" />
-      <mass
-        value="0.0403332237188927" />
-      <inertia
-        ixx="4.78544037601188E-05"
-        ixy="-6.87574813086435E-10"
-        ixz="-4.41750017853441E-10"
-        iyy="5.1204518198407E-05"
-        iyz="-1.08742076360189E-05"
-        izz="4.83895954535566E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_FR_swivel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_FR_swivel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="castor_FR_swivel_hinge"
-    type="continuous">
-    <origin
-      xyz="0.163000000000007 0.250500000000009 0.0594999999999989"
+      xyz="0.163 0.2505 -0.072"
       rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="castor_FR_swivel" />
+      link="swivel_FR" />
     <axis
       xyz="0 0 1" />
   </joint>
   <link
-    name="castor_FR_wheel">
+    name="castor_FR">
     <inertial>
       <origin
-        xyz="-2.77555756156289E-17 3.46944695195361E-18 -5.55111512312578E-17"
+        xyz="-2.77555756156289E-17 2.77555756156289E-17 -2.77555756156289E-17"
         rpy="0 0 0" />
       <mass
-        value="0.16139609361482" />
+        value="0.161396093614819" />
       <inertia
         ixx="0.00022051365922702"
-        ixy="-1.41172157876631E-22"
-        ixz="-6.89107063158536E-19"
+        ixy="-8.16892691547843E-20"
+        ixz="-6.55966950108417E-19"
         iyy="0.00022051365922702"
-        iyz="2.55805140965836E-19"
+        iyz="2.72239433110983E-19"
         izz="0.000416796707486866" />
     </inertial>
     <visual>
@@ -331,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_FR_wheel.STL" />
+          filename="package://basic_amr/meshes/castor_FR.STL" />
       </geometry>
       <material
         name="">
@@ -345,38 +239,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_FR_wheel.STL" />
+          filename="package://basic_amr/meshes/castor_FR.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="castor_FR_wheel_hinge"
+    name="castor_FR_hinge"
     type="continuous">
     <origin
-      xyz="0.00100000000000058 -0.0420000000000008 -0.0845000000000017"
-      rpy="1.5707963267949 0 1.5707963267949" />
+      xyz="0.001 -0.042038 -0.081558"
+      rpy="1.5708 0 1.5708" />
     <parent
-      link="castor_FR_swivel" />
+      link="swivel_FR" />
     <child
-      link="castor_FR_wheel" />
+      link="castor_FR" />
     <axis
       xyz="0 0 1" />
   </joint>
   <link
-    name="castor_BL_swivel">
+    name="swivel_FL">
     <inertial>
       <origin
-        xyz="2.10095743996552E-06 -0.0156725645593307 -0.0264207635526482"
+        xyz="2.10863983640674E-06 -0.0155771680202314 -0.0262317388766873"
         rpy="0 0 0" />
       <mass
-        value="0.0403332282795378" />
+        value="0.0401879953591256" />
       <inertia
-        ixx="4.78543808653988E-05"
-        ixy="-6.86722367264105E-10"
-        ixz="-4.40971896740756E-10"
-        iyy="5.12045060578292E-05"
-        iyz="-1.08741983604408E-05"
-        izz="4.83895886990048E-05" />
+        ixx="4.73544910464128E-05"
+        ixy="-6.88516904144161E-10"
+        ixz="-4.43617183428676E-10"
+        iyy="5.07216320491791E-05"
+        iyz="-1.0672961583097E-05"
+        izz="4.82016109048895E-05" />
     </inertial>
     <visual>
       <origin
@@ -384,7 +278,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BL_swivel.STL" />
+          filename="package://basic_amr/meshes/swivel_FL.STL" />
       </geometry>
       <material
         name="">
@@ -398,38 +292,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BL_swivel.STL" />
+          filename="package://basic_amr/meshes/swivel_FL.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="castor_BL_swivel_hinge"
+    name="swivel_FL_hinge"
     type="continuous">
     <origin
-      xyz="-0.160500000000001 -0.249499999999981 0.0595000000000003"
-      rpy="0 0 0.00241105480749667" />
+      xyz="-0.162 0.2505 -0.072"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
-      link="castor_BL_swivel" />
+      link="swivel_FL" />
     <axis
       xyz="0 0 1" />
   </joint>
   <link
-    name="castor_BL_wheel">
+    name="castor_FL">
     <inertial>
       <origin
-        xyz="0 -3.46944695195361E-18 0"
+        xyz="-2.99760216648792E-15 -4.16333634234434E-16 -8.60422844084496E-16"
         rpy="0 0 0" />
       <mass
         value="0.16139609361482" />
       <inertia
-        ixx="0.000220514800254536"
-        ixy="2.01934287089658E-20"
-        ixz="4.73247353082534E-07"
+        ixx="0.00022051365922702"
+        ixy="-6.42031398444213E-21"
+        ixz="1.98053690680625E-19"
         iyy="0.00022051365922702"
-        iyz="-6.82980996022302E-19"
-        izz="0.000416795566459349" />
+        iyz="-1.29205539932574E-18"
+        izz="0.000416796707486866" />
     </inertial>
     <visual>
       <origin
@@ -437,7 +331,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BL_wheel.STL" />
+          filename="package://basic_amr/meshes/castor_FL.STL" />
       </geometry>
       <material
         name="">
@@ -451,91 +345,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BL_wheel.STL" />
+          filename="package://basic_amr/meshes/castor_FL.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="castor_BL_wheel_hinge"
+    name="castor_FL_hinge"
     type="continuous">
     <origin
-      xyz="-0.00100000000000017 -0.0419999999999998 -0.0845"
-      rpy="1.5707963267949 0 1.5683852719874" />
+      xyz="0.001 -0.042038 -0.081558"
+      rpy="1.5708 0 1.5708" />
     <parent
-      link="castor_BL_swivel" />
+      link="swivel_FL" />
     <child
-      link="castor_BL_wheel" />
-    <axis
-      xyz="-0.00241105247151348 0 -0.999997093408766" />
-  </joint>
-  <link
-    name="castor_BR_swivel">
-    <inertial>
-      <origin
-        xyz="2.10049600379847E-06 -0.0156725322993151 -0.0264207602836178"
-        rpy="0 0 0" />
-      <mass
-        value="0.0403332436496892" />
-      <inertia
-        ixx="4.78542990494956E-05"
-        ixy="-6.83952454519222E-10"
-        ixz="-4.38257061589922E-10"
-        iyy="5.12044631818848E-05"
-        iyz="-1.08741654398376E-05"
-        izz="4.83895637325329E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_BR_swivel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://basic_amr/meshes/castor_BR_swivel.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="castor_BR_swivel_hinge"
-    type="continuous">
-    <origin
-      xyz="0.160499999999999 -0.249499999999981 0.0594999999999991"
-      rpy="0 0 0.0108863057088858" />
-    <parent
-      link="base_link" />
-    <child
-      link="castor_BR_swivel" />
+      link="castor_FL" />
     <axis
       xyz="0 0 1" />
   </joint>
   <link
-    name="castor_BR_wheel">
+    name="swivel_BR">
     <inertial>
       <origin
-        xyz="5.55111512312578E-17 -6.93889390390723E-18 -2.77555756156289E-17"
+        xyz="2.10863983624021E-06 -0.0155771680202312 -0.0262317388766873"
         rpy="0 0 0" />
       <mass
-        value="0.16139609361482" />
+        value="0.0401879953591256" />
       <inertia
-        ixx="0.000220536920136407"
-        ixy="-2.49573167323756E-20"
-        ixz="2.13662844924712E-06"
-        iyy="0.000220513659227019"
-        iyz="2.3211830526184E-19"
-        izz="0.000416773446577477" />
+        ixx="4.73544910464123E-05"
+        ixy="-6.88516904357403E-10"
+        ixz="-4.4361718337127E-10"
+        iyy="5.07216320491788E-05"
+        iyz="-1.0672961583097E-05"
+        izz="4.8201610904889E-05" />
     </inertial>
     <visual>
       <origin
@@ -543,7 +384,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BR_wheel.STL" />
+          filename="package://basic_amr/meshes/swivel_BR.STL" />
       </geometry>
       <material
         name="">
@@ -557,21 +398,180 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://basic_amr/meshes/castor_BR_wheel.STL" />
+          filename="package://basic_amr/meshes/swivel_BR.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="castor_BR_wheel_hinge"
+    name="swivel_BR_hinge"
     type="continuous">
     <origin
-      xyz="0.000999999999999751 -0.0419999999999998 -0.0845"
-      rpy="1.5707963267949 0 1.55991002108601" />
+      xyz="0.1605 -0.2495 -0.072"
+      rpy="0 0 0" />
     <parent
-      link="castor_BR_swivel" />
+      link="base_link" />
     <child
-      link="castor_BR_wheel" />
+      link="swivel_BR" />
     <axis
-      xyz="0.0108860906844809 0 0.999940744759213" />
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="castor_BR">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 2.77555756156289E-17 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.161396093614819" />
+      <inertia
+        ixx="0.000220513659227019"
+        ixy="-1.13046961561861E-20"
+        ixz="2.21442502435767E-19"
+        iyy="0.000220513659227019"
+        iyz="-1.38450739983862E-18"
+        izz="0.000416796707486866" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/castor_BR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/castor_BR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="castor_BR_hinge"
+    type="continuous">
+    <origin
+      xyz="0.001 -0.042038 -0.081558"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="swivel_BR" />
+    <child
+      link="castor_BR" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="swivel_BL">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/swivel_BL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/swivel_BL.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="swivel_BL_hinge"
+    type="continuous">
+    <origin
+      xyz="-0.1605 -0.2495 -0.072"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="swivel_BL" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="castor_BL">
+    <inertial>
+      <origin
+        xyz="0 -2.77555756156289E-17 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.161396093614819" />
+      <inertia
+        ixx="0.000220513659227019"
+        ixy="-1.49421772761313E-20"
+        ixz="2.10740569971164E-19"
+        iyy="0.000220513659227019"
+        iyz="-1.42130425962705E-18"
+        izz="0.000416796707486865" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/castor_BL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://basic_amr/meshes/castor_BL.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="castor_BL_hinge"
+    type="continuous">
+    <origin
+      xyz="-0.001 -0.042038 -0.081558"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="swivel_BL" />
+    <child
+      link="castor_BL" />
+    <axis
+      xyz="0 0 -1" />
   </joint>
 </robot>
