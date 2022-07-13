@@ -49,7 +49,7 @@ void setup() {
 void loop()
 {
     // Read data from sensor
-    rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION + VOLTAGE_SYS_ERROR;// read the input pin
+    // rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION + VOLTAGE_SYS_ERROR;// read the input pin
     rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION;// read the input pin
     trueVoltage = rawVoltage*WIPER_RATIO;
 
