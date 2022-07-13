@@ -16,7 +16,7 @@ gnome-terminal -- bash -c "rosrun zlac8015d talker.py"
 
 # RPLiDAR
 echo "Starting RPLIDAR ######################################"
-gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jhtran@10.0.0.1 'bash -is < ~/Desktop/startup.sh'"
+gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jhtran@10.0.0.2 'bash -is < ~/Desktop/startup.sh'"
 
 # Node JS
 gnome-terminal -- bash -c "~/Desktop/VirtualEnv/start_nodejs.sh"
