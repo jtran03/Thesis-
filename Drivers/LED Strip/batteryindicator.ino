@@ -1,61 +1,41 @@
-/*
- * rosserial LED Strip
- * Blinks an LED on callback
- * Blinks LED Strip
- */
-
 #include <ros.h>
-#include <std_msgs/String.h>
-#include <FastLED.h>
+#include <std_msgs/float.h>
 
-#define LED_PIN     4
-#define NUM_LEDS    20
-#define BRIGHTNESS  64
-#define LED_TYPE    WS2811
-#define COLOR_ORDER GRB
 
-CRGB leds[NUM_LEDS];
 ros::NodeHandle  nh;
-char LED_STRIP_STATE[5];
 
-/* Call back Function */
-void messageCb( const std_msgs::String& toggle_msg){
 
-  /* Blink the LED*/
-  digitalWrite(LED_BUILTIN, HIGH-digitalRead(LED_BUILTIN));
+int v_analogPin = A4; // potentiometer wiper (middle terminal) connected to analog pin 3
+                    // outside leads to ground and +5V
+float SYSTEM_VOLTAGE = 5;
+float ADC_RESOLUTION = 1023;
+float WIPER_RATIO = 10000/2000;
+float VOLTAGE_SYS_ERROR = 0.06;
+float CURRENT_SYS_ERROR = 0.08;
+float rawVoltage = 0;
+float trueVoltage = 0;
 
-  /* Capture Subscribed Message */
-  char state;
-  state = toggle_msg.data[0];
-  ledstrip(state);
+
+void setup() {
+  Serial.begin(9600);           //  setup serial
 }
 
-/* Subscriber node */
-ros::Subscriber<std_msgs::String> sub("toggle_led", &messageCb );
+void loop() {
+  // VOLTAGE STUFF
+  rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION + VOLTAGE_SYS_ERROR;// read the input pin
+  trueVoltage = rawVoltage*WIPER_RATIO;
 
 
-/*########################################################################*/
-/* Setup */
-/*########################################################################*/
-void setup()
-{
+  // CURRENT STUFF
+  // put your main code here, to run repeatedly:
+  int adc = analogRead(A0);
+  float voltage = adc*5/1023.0;
+  float current = (voltage-2.5)/0.185 + CURRENT_SYS_ERROR;
 
-  delay( 3000 ); // power-up safety delay
-
-  /* ROS Serial Code */
-  pinMode(LED_BUILTIN, OUTPUT);
-  nh.initNode();
-  nh.subscribe(sub);
-
-  /* LED Strip Code */
-  FastLED.addLeds<LED_TYPE, LED_PIN, COLOR_ORDER>(leds, NUM_LEDS).setCorrection( TypicalLEDStrip );
-  FastLED.setBrightness(  BRIGHTNESS );
-}
-/*########################################################################*/
-/* Loop */
-/*########################################################################*/
-void loop()
-{
-  nh.spinOnce();
-  delay(1);
+  // Debug
+  Serial.print("Voltage = ");
+  Serial.println(trueVoltage);          // debug value
+  Serial.print("Current : ");
+  Serial.println(current);
+  delay(50);
 }
