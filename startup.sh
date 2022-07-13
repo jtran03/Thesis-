@@ -21,6 +21,9 @@ gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jht
 # Node JS
 gnome-terminal -- bash -c "~/Desktop/VirtualEnv/start_nodejs.sh"
 
+# VOltage Sensors
+gnome-terminal -- bash c- "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
+
 # RVIZ
 rosrun rviz rviz -d ~/Desktop/test.rviz
 #gnome-terminal -- "source /opt/ros/melodic/setup.bash; source ~/catkin_ws/devel/setup.bash;" 
