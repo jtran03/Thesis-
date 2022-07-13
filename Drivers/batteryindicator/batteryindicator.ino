@@ -10,7 +10,7 @@ std_msgs::Float32 current_msg;
 std_msgs::Float32 status_msg;
 
 // Declare global variables
-int v_analogPin = A4; // potentiometer wiper (middle terminal) connected to analog pin 3
+int v_analogPin = A4; 
 float SYSTEM_VOLTAGE = 5;
 float ADC_RESOLUTION = 1023;
 float WIPER_RATIO = 10000/2000;
