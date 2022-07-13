@@ -100,13 +100,21 @@ echo "##############################################"
 echo "Finished installing Bricks V2 IMU drivers"
 echo "##############################################"
 
+# Installing Arduino 
+sudo apt-get install ros-melodic-rosserial-arduino
+sudo apt-get install ros-melodic-rosserial
+cd ~/catkin_ws/src
+git clone https://github.com/ros-drivers/rosserial.git
+
+
+
 # RPLidar
 
 #Install moveit
-sudo apt install ros-melodic-moveit
+#sudo apt install ros-melodic-moveit
 
 # Copy urdf file over 
-cp -R ~/Desktop/Thesis-/ROS\ Packages/amr_urdf ~/catkin_ws/src 
+#cp -R ~/Desktop/Thesis-/ROS\ Packages/amr_urdf ~/catkin_ws/src 
 
 # Web Server 
 sudo apt-get install ros-melodic-rosbridge-server -y
