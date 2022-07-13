@@ -72,9 +72,6 @@ cd ~/catkin_ws/src
 git clone https://github.com/stereolabs/zed-ros-wrapper.git
 git clone https://github.com/stereolabs/zed-ros-interfaces.git
 
-# Arduino Related Packages
-sudo apt-get install ros-melodic-rosserial-arduino -y
-
 # ZLAC8015D Packages
 sudo apt-get install -y python-pymodbus
 cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
@@ -100,13 +97,21 @@ echo "##############################################"
 echo "Finished installing Bricks V2 IMU drivers"
 echo "##############################################"
 
+# Installing Arduino 
+sudo apt-get install ros-melodic-rosserial-arduino -y
+sudo apt-get install ros-melodic-rosserial -y
+cd ~/catkin_ws/src
+git clone https://github.com/ros-drivers/rosserial.git
+
+
+
 # RPLidar
 
 #Install moveit
-sudo apt install ros-melodic-moveit
+#sudo apt install ros-melodic-moveit
 
 # Copy urdf file over 
-cp -R ~/Desktop/Thesis-/ROS\ Packages/amr_urdf ~/catkin_ws/src 
+#cp -R ~/Desktop/Thesis-/ROS\ Packages/amr_urdf ~/catkin_ws/src 
 
 # Web Server 
 sudo apt-get install ros-melodic-rosbridge-server -y
