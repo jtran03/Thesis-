@@ -16,13 +16,13 @@ gnome-terminal -- bash -c "rosrun zlac8015d talker.py"
 
 # RPLiDAR
 echo "Starting RPLIDAR ######################################"
-gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jhtran@10.0.0.2 'bash -is < ~/Desktop/startup.sh'"
+gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jhtran@10.0.0.3 'bash -is < ~/Desktop/startup.sh'"
 
 # Node JS
 gnome-terminal -- bash -c "~/Desktop/VirtualEnv/start_nodejs.sh"
 
 # VOltage Sensors
-gnome-terminal -- bash c- "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
+gnome-terminal -- bash -c "rosrun rosserial_python serial_node.py /dev/ttyUSB0"
 
 # RVIZ
 rosrun rviz rviz -d ~/Desktop/test.rviz
