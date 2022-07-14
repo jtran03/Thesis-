@@ -64,7 +64,7 @@ void loop()
         timeNow = millis();
 
         // Load message into publishers
-        voltage_msg.data = voltage;
+        voltage_msg.data = trueVoltage;
         voltage_pub.publish( &voltage_msg );
         current_msg.data = current;
         current_pub.publish( &current_msg );
