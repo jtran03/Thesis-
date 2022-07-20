@@ -18,8 +18,8 @@ def zlac8015d_wheels_rpm_callback(msg):
 
 	# Convert twist to wheel RPM
 	left_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	right_rpm = -(msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
+	right_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	#rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
 
 	# Check if RPM is over the limit
 	if (abs(int(left_rpm)) > MAX_RPM):
@@ -44,16 +44,18 @@ if __name__ == '__main__':
 
 	# Initialise ROS
 	rospy.init_node('zlac8015d_node', anonymous=True)
-	rospy.loginfo("Start ZLAC8015D node")
+	rospy.loginfo("Starting ZLAC8015D node")
 
 	# Initialise publishers
-	encoder_pub = rospy.Publisher("/zlac8015d/encoder_cmd", Float32MultiArray, queue_size=10)
+	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Int32MultiArray, queue_size=10)
+	RPM_pub = rospy.Publisher("/zlac8015d/measured_RPM", Int32MultiArray, queue_size=10)
 
 	# Initialise publisher messages
-	encoder_pub_msg = Float32MultiArray()
+	encoder_pub_msg = Int32MultiArray()
+	RPM_pub_msg = Int32MultiArray()
 
 	# Initialise subscribers
-	#rospy.Subscriber("/zlac8015d/wheels_rpm", Twist, zlac8015d_wheels_rpm_callback)
+	rospy.Subscriber("/zlac8015d/wheels_rpm", Twist, zlac8015d_wheels_rpm_callback)
 	rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
 
 
@@ -61,6 +63,7 @@ if __name__ == '__main__':
 	zlc = Controller()
 
 	# Iniitalise the ZLAC8015D
+	rospy.loginfo("Initialising Motor Driver")
 	zlc.disable_motor()
 
 	# Set acceleration and deceleration times
@@ -72,19 +75,21 @@ if __name__ == '__main__':
 	zlc.enable_motor()
 
 	# Define rate as 10Hz
-	rate = rospy.Rate(10) # 10hz
-
-	# Variable to store encoder data
-	encoderValue = []
+	rospy.loginfo("Motors successfully up and running")
+	rate = rospy.Rate(40) # 10hz
 
 	# Check if ros is running
 	while not rospy.is_shutdown():
 
-		#Grab encoder values
-		rospy.loginfo("Got Encoder Value")
-		lightEncoderValue, rightEncoderValue = zlc.get_encoder()
-		encoder_pub_msg.data = [lightEncoderValue, rightEncoderValue]
+		# Grab encoder values
+		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
+		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue]
 		encoder_pub.publish(encoder_pub_msg)
+
+		# Grab velocity values
+		leftRPM, rightRPM = zlc.get_rpm()
+		RPM_pub_msg.data = [leftRPM, rightRPM]
+		RPM_pub.publish(RPM_pub_msg)
 
 		# Sleep for next rate
 		rate.sleep()
