@@ -1,7 +1,7 @@
 <launch>
 
   <include file="$(find zed_wrapper)/launch/zed2.launch" />
-  <include file="$(find tinkerforge_imu_ros)/bricks_v3.launch" />
+  <include file="$(find tinkerforge_imu_ros)/launch/bricks_v3.launch" />
   <include file="$(find rosbridge_server)/rosbridge_websocket.launch" />
 
   <node name="battery_indicator" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyUSB0"/>
