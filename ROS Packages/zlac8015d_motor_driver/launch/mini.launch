@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find slamware_ros_sdk)/slamware_ros_sdk_server_node.launch" />
+  <node name="motor_driver" pkg="zlac8015d_motor_driver" type="zlac8015d_driver.py" />
+</launch>
