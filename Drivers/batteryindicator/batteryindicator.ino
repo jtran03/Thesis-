@@ -13,7 +13,7 @@ std_msgs::Float32 status_msg;
 int v_analogPin = A4; 
 float SYSTEM_VOLTAGE = 5;
 float ADC_RESOLUTION = 1023;
-float WIPER_RATIO = 10000/2000;
+float WIPER_RATIO = 21000/4500;
 float VOLTAGE_SYS_ERROR = 0.06;
 float CURRENT_SYS_ERROR = 0.08;
 float rawVoltage = 0;
