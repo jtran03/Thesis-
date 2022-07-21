@@ -74,7 +74,7 @@ git clone https://github.com/stereolabs/zed-ros-interfaces.git
 
 # ZLAC8015D Packages
 sudo apt-get install -y python-pymodbus
-cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
+cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d_motor_driver ~/catkin_ws/src 
 usermod -a -G dialout jhtran
 usermod -a -G tty jhtran
 
