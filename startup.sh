@@ -12,7 +12,9 @@ gnome-terminal -- bash -c "roslaunch tinkerforge_imu_ros bricks_v3.launch"
 gnome-terminal -- bash -c "roslaunch rosbridge_server rosbridge_websocket.launch"
 
 # Motor Driver
-gnome-terminal -- bash -c "rosrun zlac8015d_motor_driver zlac8015d_driver.py"
+# gnome-terminal -- bash -c "rosrun zlac8015d_motor_driver zlac8015d_driver.py"
+gnome-terminal -- bash -c "sshpass -p "1324" ssh -o StrictHostKeyChecking=no jhtran@10.0.0.3 'bash -is < rosrun zlac8015d_motor_driver zlac8015d_driver.py'"
+
 
 # RPLiDAR
 echo "Starting RPLIDAR ######################################"
