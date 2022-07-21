@@ -14,8 +14,6 @@ int v_analogPin = A4;
 float SYSTEM_VOLTAGE = 5;
 float ADC_RESOLUTION = 1023;
 float WIPER_RATIO = 21000/4500;
-float VOLTAGE_SYS_ERROR = 0.06;
-float CURRENT_SYS_ERROR = 0.08;
 float rawVoltage = 0;
 float trueVoltage = 0;
 float publisherRate = 1000; // 1Hz
@@ -48,14 +46,13 @@ void setup() {
 // LOOP-------------------------------------------------------------
 void loop()
 {
-    // Read data from sensor
-    // rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION + VOLTAGE_SYS_ERROR;// read the input pin
+    // Read voltage from sensor
     rawVoltage = (analogRead(v_analogPin)*SYSTEM_VOLTAGE)/ADC_RESOLUTION;// read the input pin
     trueVoltage = rawVoltage*WIPER_RATIO;
 
-    // Calculate voltage and current
+    // Read current from sensor
     float voltage = analogRead(A0)*5/1023.0;
-    float current = (voltage-2.5)/0.185 + CURRENT_SYS_ERROR;
+    float current = (voltage-2.5)/0.066;
 
     // Publish at a specific rate
     if(millis() >= timeNow + publisherRate){
