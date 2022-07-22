@@ -86,21 +86,29 @@ if __name__ == '__main__':
 	# Check if ros is running
 	while not rospy.is_shutdown():
 
+		# Calculate how many kilometres will the encoder value will overflow
+
 		# Grab encoder values
+		# Get time
+		seconds = rospy.get_time()
 		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
-		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue]
+		# Get time_1
+		seconds_1 = rospy.get_time()
+		# Print Calculated time taken
+
+		# Get time_2
+		leftRPM, rightRPM = zlc.get_rpm()
+		# Get time_3
+		# Print Calculated time taken
+
+		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue, leftRPM, rightRPM]
 		encoder_pub.publish(encoder_pub_msg)
 
-		# Grab velocity values
-		leftRPM, rightRPM = zlc.get_rpm()
-		RPM_pub_msg.data = [leftRPM, rightRPM]
-		RPM_pub.publish(RPM_pub_msg)
-
-		# Grab encoder change values
-		encoder_change_pub.data = [leftEncoderValue - prevLeftEncoderValue, rightEncoderValue - prevRightEncoderValue]
-		encoder_change_pub.publish(encoder_change_pub_msg)
-		prevLeftEncoderValue = leftEncoderValue
-		prevRightEncoderValue = rightEncoderValue
+		# # Grab encoder change values
+		# encoder_change_pub.data = [leftEncoderValue - prevLeftEncoderValue, rightEncoderValue - prevRightEncoderValue]
+		# encoder_change_pub.publish(encoder_change_pub_msg)
+		# prevLeftEncoderValue = leftEncoderValue
+		# prevRightEncoderValue = rightEncoderValue
 
 		# Sleep for next rate
 		rate.sleep()
