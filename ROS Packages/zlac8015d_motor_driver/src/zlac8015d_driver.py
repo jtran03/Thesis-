@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
+import time
 from std_msgs.msg import Float32MultiArray
 from geometry_msgs.msg import Twist
 from zlac8015d import Controller
@@ -90,14 +91,18 @@ if __name__ == '__main__':
 
 		# Grab encoder values
 		# Get time
-		seconds = rospy.get_time()
+		start_time = time.time()
 		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
 		# Get time_1
-		seconds_1 = rospy.get_time()
+		time_2 = time.time()
+		print(start_time-time_2)
 		# Print Calculated time taken
 
 		# Get time_2
+		start_time = time.time()
 		leftRPM, rightRPM = zlc.get_rpm()
+		time_2 = time.time()
+		print(start_time-time_2)
 		# Get time_3
 		# Print Calculated time taken
 
