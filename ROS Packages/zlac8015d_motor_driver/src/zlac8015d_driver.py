@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from std_msgs.msg import Int32MultiArray, Float32MultiArray
+from std_msgs.msg import Float32MultiArray
 from geometry_msgs.msg import Twist
 from zlac8015d import Controller
 
@@ -47,14 +47,14 @@ if __name__ == '__main__':
 	rospy.loginfo("Starting ZLAC8015D node")
 
 	# Initialise publishers
-	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Int32MultiArray, queue_size=10)
-	RPM_pub = rospy.Publisher("/zlac8015d/measured_RPM", Int32MultiArray, queue_size=10)
-	encoder_change_pub = rospy.Publisher("/zlac8015d/encoder_change", Int32MultiArray, queue_size=10)
+	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Float32MultiArray, queue_size=10)
+	RPM_pub = rospy.Publisher("/zlac8015d/measured_RPM", Float32ultiArray, queue_size=10)
+	encoder_change_pub = rospy.Publisher("/zlac8015d/encoder_change", Float32MultiArray, queue_size=10)
 
 	# Initialise publisher messages
-	encoder_pub_msg = Int32MultiArray()
-	RPM_pub_msg = Int32MultiArray()
-	encoder_change_pub_msg = Int32MultiArray()
+	encoder_pub_msg = Float32MultiArray()
+	RPM_pub_msg = Float32MultiArray()
+	encoder_change_pub_msg = Float32MultiArray()
 
 	# Initialise subscribers
 	rospy.Subscriber("/zlac8015d/wheels_rpm", Twist, zlac8015d_wheels_rpm_callback)
@@ -80,8 +80,8 @@ if __name__ == '__main__':
 	rate = rospy.Rate(30) # 10hz
 
 	# Define previous encoder values
-	prevLeftEncoderValue = 0
-	prevRightEncoderValue = 0
+	prevLeftEncoderValue = 0.0
+	prevRightEncoderValue = 0.0
 
 	# Check if ros is running
 	while not rospy.is_shutdown():

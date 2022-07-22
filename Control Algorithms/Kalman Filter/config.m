@@ -1,5 +1,2 @@
-global prevLeftEncoder;
-global prevRightEncoder;
-
-prevLeftEncoder = 0; 
-prevRightEncoder = 0; 
+radius = 0.1715; 
+PPR = 4096;
