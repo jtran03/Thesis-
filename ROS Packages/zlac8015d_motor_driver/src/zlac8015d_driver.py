@@ -49,15 +49,16 @@ if __name__ == '__main__':
 	# Initialise publishers
 	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Int32MultiArray, queue_size=10)
 	RPM_pub = rospy.Publisher("/zlac8015d/measured_RPM", Int32MultiArray, queue_size=10)
+	encoder_change_pub = rospy.Publisher("/zlac8015d/encoder_change", Int32MultiArray, queue_size=10)
 
 	# Initialise publisher messages
 	encoder_pub_msg = Int32MultiArray()
 	RPM_pub_msg = Int32MultiArray()
+	encoder_change_pub_msg = Int32MultiArray()
 
 	# Initialise subscribers
 	rospy.Subscriber("/zlac8015d/wheels_rpm", Twist, zlac8015d_wheels_rpm_callback)
 	rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
-
 
 	# Import ZLAC8015D API
 	zlc = Controller()
@@ -76,7 +77,11 @@ if __name__ == '__main__':
 
 	# Define rate as 10Hz
 	rospy.loginfo("Motors successfully up and running")
-	rate = rospy.Rate(40) # 10hz
+	rate = rospy.Rate(30) # 10hz
+
+	# Define previous encoder values
+	prevLeftEncoderValue = 0
+	prevRightEncoderValue = 0
 
 	# Check if ros is running
 	while not rospy.is_shutdown():
@@ -90,6 +95,12 @@ if __name__ == '__main__':
 		leftRPM, rightRPM = zlc.get_rpm()
 		RPM_pub_msg.data = [leftRPM, rightRPM]
 		RPM_pub.publish(RPM_pub_msg)
+
+		# Grab encoder change values
+		encoder_change_pub.data = [leftEncoderValue - prevLeftEncoderValue, rightEncoderValue - prevRightEncoderValue]
+		encoder_change_pub.publish(encoder_change_pub_msg)
+		prevLeftEncoderValue = leftEncoderValue
+		prevRightEncoderValue = rightEncoderValue
 
 		# Sleep for next rate
 		rate.sleep()
