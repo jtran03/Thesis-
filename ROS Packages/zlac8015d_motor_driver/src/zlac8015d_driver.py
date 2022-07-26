@@ -8,7 +8,7 @@ from zlac8015d import Controller
 
 # Global variables
 WHEEL_RADIUS = 0.1715 #m
-WHEEL_DISTANCE = 0.5 #m
+WHEEL_DISTANCE = 0.4461 #m
 MAX_RPM = 100
 ACCEL_TIME = 200 #ms
 DEACCEL_TIME = 200 #ms
@@ -18,8 +18,8 @@ VELOCITY_MODE = 3
 def zlac8015d_wheels_rpm_callback(msg):
 
 	# Convert twist to wheel RPM
-	left_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	right_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
+	right_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
 	#rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
 
 	# Check if RPM is over the limit
@@ -49,8 +49,6 @@ if __name__ == '__main__':
 
 	# Initialise publishers
 	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Float32MultiArray, queue_size=10)
-	RPM_pub = rospy.Publisher("/zlac8015d/measured_RPM", Float32ultiArray, queue_size=10)
-	encoder_change_pub = rospy.Publisher("/zlac8015d/encoder_change", Float32MultiArray, queue_size=10)
 
 	# Initialise publisher messages
 	encoder_pub_msg = Float32MultiArray()
@@ -83,24 +81,8 @@ if __name__ == '__main__':
 	# Check if ros is running
 	while not rospy.is_shutdown():
 
-		# Calculate how many kilometres will the encoder value will overflow
-
-		# Grab encoder values
-		# Get time
-		# start_time = time.time()
 		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
-		# Get time_1
-		# time_2 = time.time()
-		# print(start_time-time_2)
-		# Print Calculated time taken
-
-		# Get time_2
-		# start_time = time.time()
 		leftRPM, rightRPM = zlc.get_rpm()
-		# time_2 = time.time()
-		# print(start_time-time_2)
-		# Get time_3
-		# Print Calculated time taken
 
 		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue, leftRPM, rightRPM]
 		encoder_pub.publish(encoder_pub_msg)
