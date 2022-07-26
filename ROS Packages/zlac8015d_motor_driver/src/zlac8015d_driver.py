@@ -80,10 +80,6 @@ if __name__ == '__main__':
 	rospy.loginfo("Motors successfully up and running")
 	rate = rospy.Rate(100) # 10hz
 
-	# Define previous encoder values
-	prevLeftEncoderValue = 0.0
-	prevRightEncoderValue = 0.0
-
 	# Check if ros is running
 	while not rospy.is_shutdown():
 
