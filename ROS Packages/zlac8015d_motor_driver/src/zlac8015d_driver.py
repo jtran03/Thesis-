@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
 	# Define rate as 10Hz
 	rospy.loginfo("Motors successfully up and running")
-	rate = rospy.Rate(30) # 10hz
+	rate = rospy.Rate(100) # 10hz
 
 	# Define previous encoder values
 	prevLeftEncoderValue = 0.0
@@ -91,18 +91,18 @@ if __name__ == '__main__':
 
 		# Grab encoder values
 		# Get time
-		start_time = time.time()
+		# start_time = time.time()
 		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
 		# Get time_1
-		time_2 = time.time()
-		print(start_time-time_2)
+		# time_2 = time.time()
+		# print(start_time-time_2)
 		# Print Calculated time taken
 
 		# Get time_2
-		start_time = time.time()
+		# start_time = time.time()
 		leftRPM, rightRPM = zlc.get_rpm()
-		time_2 = time.time()
-		print(start_time-time_2)
+		# time_2 = time.time()
+		# print(start_time-time_2)
 		# Get time_3
 		# Print Calculated time taken
 
