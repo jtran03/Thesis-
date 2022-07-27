@@ -787,7 +787,7 @@
       xyz="0 0 0" />
   </joint>
   <link
-    name="base_link">
+    name="m2m2">
     <inertial>
       <origin
         xyz="2.60208521396521E-18 0 -0.006"
@@ -835,7 +835,7 @@
     <parent
       link="base_link_true" />
     <child
-      link="base_link" />
+      link="m2m2" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -964,11 +964,7 @@
     </sensor>
   </gazebo>
   <!-- Lidar -->
-<<<<<<< HEAD
-  <gazebo reference="base_link">
-=======
-  <gazebo reference="laser">
->>>>>>> 54e9c964d76de8a046ab820bedd4c2f3ef97649a
+  <gazebo reference="m2m2">
       <material>Gazebo/Red</material>
 
       <sensor name="laser" type="ray">

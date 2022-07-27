@@ -14,4 +14,6 @@
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
+  <node pkg="tf" type="static_transform_publisher" name="base_link_true_to_base_link" args="-0.0073926 0.32076 -0.061 0 0 0 base_link base_link_true 10" />
+
 </launch>
