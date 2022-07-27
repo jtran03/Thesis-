@@ -964,7 +964,11 @@
     </sensor>
   </gazebo>
   <!-- Lidar -->
+<<<<<<< HEAD
   <gazebo reference="base_link">
+=======
+  <gazebo reference="laser">
+>>>>>>> 54e9c964d76de8a046ab820bedd4c2f3ef97649a
       <material>Gazebo/Red</material>
 
       <sensor name="laser" type="ray">
