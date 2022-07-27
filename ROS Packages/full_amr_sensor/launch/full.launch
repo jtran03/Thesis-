@@ -6,8 +6,8 @@
 
   <node name="battery_indicator" pkg="rosserial_python" type="serial_node.py" args="/dev/ttyUSB0"/>
 
-  <arg name="gui" default="True" />
-  <param name="use_gui" value="$(arg gui)"/>
+  <!-- <arg name="gui" default="True" />
+  <param name="use_gui" value="$(arg gui)"/> -->
   <param name="robot_description" command="cat $(find full_amr_sensor)/urdf/full_amr_sensor.urdf" />
 
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
