@@ -15,12 +15,15 @@ DEACCEL_TIME = 200 #ms
 VELOCITY_MODE = 3
 
 # Call back ######################################
-def zlac8015d_wheels_rpm_callback(msg):
+def zlac8015d_rpm_callback(msg):
 
 	# Convert twist to wheel RPM
-	left_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	right_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/WHEEL_RADIUS
-	#rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
+	# left_rpm = (msg.linear.x - WHEEL_DISTANCE*msg.angular.z)/(2*WHEEL_RADIUS)
+	# right_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/(2*WHEEL_RADIUS)
+	left_rpm = msg.angular.x
+	right_rpm = msg.angular.y
+	rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
+
 
 	# Check if RPM is over the limit
 	if (abs(int(left_rpm)) > MAX_RPM):
@@ -52,11 +55,9 @@ if __name__ == '__main__':
 
 	# Initialise publisher messages
 	encoder_pub_msg = Float32MultiArray()
-	RPM_pub_msg = Float32MultiArray()
-	encoder_change_pub_msg = Float32MultiArray()
 
 	# Initialise subscribers
-	rospy.Subscriber("/zlac8015d/wheels_rpm", Twist, zlac8015d_wheels_rpm_callback)
+	rospy.Subscriber("/zlac8015d/rpm", Twist, zlac8015d_rpm_callback)
 	rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
 
 	# Import ZLAC8015D API
