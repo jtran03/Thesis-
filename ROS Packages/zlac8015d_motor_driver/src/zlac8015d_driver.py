@@ -22,7 +22,7 @@ def zlac8015d_rpm_callback(msg):
 	# right_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/(2*WHEEL_RADIUS)
 	left_rpm = msg.angular.x
 	right_rpm = msg.angular.y
-	rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(left_rpm))
+	rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", left_rpm, left_rpm)
 
 
 	# Check if RPM is over the limit
