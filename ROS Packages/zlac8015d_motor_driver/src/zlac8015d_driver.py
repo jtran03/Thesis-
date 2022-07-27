@@ -41,7 +41,7 @@ def zlac8015d_rpm_callback(msg):
 
 	# Set the RPM
 	rospy.loginfo("Got RPM. ")
-	zlc.set_rpm(int(left_rpm), int(right_rpm))
+	zlc.set_rpm(int(round(left_rpm)), -int(round(right_rpm)))
 
 # Defining main  ######################################
 if __name__ == '__main__':
