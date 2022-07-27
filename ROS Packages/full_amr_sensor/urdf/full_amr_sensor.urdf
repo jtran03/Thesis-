@@ -787,7 +787,7 @@
       xyz="0 0 0" />
   </joint>
   <link
-    name="laser">
+    name="m2m2">
     <inertial>
       <origin
         xyz="2.60208521396521E-18 0 -0.006"
@@ -835,7 +835,7 @@
     <parent
       link="base_link" />
     <child
-      link="laser" />
+      link="m2m2" />
     <axis
       xyz="0 0 0" />
   </joint>
