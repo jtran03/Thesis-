@@ -734,7 +734,7 @@
       xyz="-0.999985477648034 0.00538929429831941 0" />
   </joint>
   <link
-    name="zed2">
+    name="zed2_base_link">
     <inertial>
       <origin
         xyz="-0.00111518039315167 -0.0600009977385601 4.53380794620262E-05"
@@ -782,7 +782,7 @@
     <parent
       link="base_link" />
     <child
-      link="zed2" />
+      link="zed2_base_link" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -924,7 +924,7 @@
   </gazebo>
 
   <!-- Camera -->
-  <gazebo reference="zed2">
+  <gazebo reference="zed2_base_link">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
       <camera name="head">
