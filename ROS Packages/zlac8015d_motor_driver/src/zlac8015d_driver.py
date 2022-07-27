@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
 	# Initialise subscribers
 	rospy.Subscriber("/zlac8015d/rpm", Twist, zlac8015d_rpm_callback)
-	rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
+	#rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
 
 	# Import ZLAC8015D API
 	zlc = Controller()
