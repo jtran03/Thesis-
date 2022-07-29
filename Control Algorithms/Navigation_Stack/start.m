@@ -13,7 +13,7 @@ L2Rtheta = (3/2)*pi;   % theta (rad)
 
 % Kalman Filter parameters 
 xNum = 3; % Number of states
-yNum = 6; % Number of outputs
+yNum = 3; % Number of outputs
 uNum = 2; % Number of inputs
 QVar = 0.1; % R variable number
 RVar = 0.5; % Q variance number 
@@ -25,14 +25,8 @@ Q = diag(QVar*ones(xNum,1)); % Q matrix
 R = diag(RVar*ones(yNum,1)); % R matrix 
 C = [1 0 0; 
      0 1 0; 
-     0 0 1; 
-     1 0 0;
-     0 1 0; 
      0 0 1];
 D = [0 0; 
-     0 0; 
-     0 0; 
-     0 0; 
      0 0; 
      0 0]; 
  
