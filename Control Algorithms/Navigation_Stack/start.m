@@ -5,6 +5,13 @@ initialPose = [0, 0, 0]; %[x, y, theta]
 initialInput = [0; 0]; % [v, w] 
 timeStep = 0.1; % Kalman Sample Rate in s 
 
+%Waypoint Navigation
+startLoc = [0,0]; 
+goalLoc = [1,1]; 
+
+%Sample Rates
+encoderSampleRate = 0.03333; %30Hz 
+
 % Transformation matrices
 % Lidar to Robot Values 
 L2Rx = 0.0073926; % x
