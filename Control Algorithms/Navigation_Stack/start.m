@@ -10,7 +10,8 @@ startLoc = [0,0];
 goalLoc = [1,1]; 
 
 %Sample Rates
-encoderSampleRate = 0.03333; %30Hz 
+encoderSampleRate = 10; %Hz 
+
 
 % Transformation matrices
 % Lidar to Robot Values 
