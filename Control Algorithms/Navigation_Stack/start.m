@@ -1,5 +1,5 @@
 % System Parameters 
-LIVE_MODE = 1; % turn on live mapping 
+LIVE_MODE = 0; % turn on live mapping 
 wheelBase = 0.4464; %m
 wheelRadius = 0.1715/2; %m
 initialPose = [0, 0, 0]; %[x, y, theta]
