@@ -1,5 +1,5 @@
 % System Parameters 
-LIVE_MODE = 1; % turn on live mapping 
+LIVE_MODE = 0; % turn on live mapping 
 wheelBase = 0.4464; %m
 wheelRadius = 0.1715/2; %m
 initialPose = [0, 0, 0]; %[x, y, theta]
@@ -15,6 +15,14 @@ encoderSampleRate = 10; %Hz
 
 
 % Transformation matrices
+% World to RobotOdom
+W2ORx = 0.5; 
+W2ORy = 0.5; 
+W2ORtheta = pi/2;  
+W2ORTransform = [cos(W2ORtheta), -sin(W2ORtheta), W2ORx; 
+                sin(W2ORtheta), cos(W2ORtheta), W2ORy; 
+                0            , 0            , 1]; 
+
 % World to Odom 
 W2Ox = 0.5 - 0.0073926; 
 W2Oy = 0.5 + 0.32076;
