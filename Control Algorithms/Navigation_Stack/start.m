@@ -23,18 +23,18 @@ W2ORTransform = [cos(W2ORtheta), -sin(W2ORtheta), W2ORx;
                 sin(W2ORtheta), cos(W2ORtheta), W2ORy; 
                 0            , 0            , 1]; 
 
-% World to Odom 
-W2Ox = 0.5 - 0.0073926; 
-W2Oy = 0.5 + 0.32076;
-W2Otheta = (3/2)*pi; 
-W2OTransform = [cos(W2Otheta), -sin(W2Otheta), W2Ox; 
-                sin(W2Otheta), cos(W2Otheta), W2Oy; 
+% World to LidarOdom 
+W2LOx = 0.5 - 0.0073926; 
+W2LOy = 0.5 + 0.32076;
+W2LOtheta = (3/2)*pi; 
+W2LOTransform = [cos(W2LOtheta), -sin(W2LOtheta), W2LOx; 
+                sin(W2LOtheta), cos(W2LOtheta), W2LOy; 
                 0            , 0            , 1]; 
 
 % Lidar to Robot Values 
 L2Rx = 0.32076;  % x
 L2Ry = -0.0073926; % y
-L2Rtheta = (3/2)*pi;   % theta (rad) 
+L2Rtheta = pi;   % theta (rad) 
 L2RTransform = [cos(L2Rtheta), -sin(L2Rtheta), L2Rx; 
                 sin(L2Rtheta), cos(L2Rtheta), L2Ry; 
                 0            , 0            , 1]; 
