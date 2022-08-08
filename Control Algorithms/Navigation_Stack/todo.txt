@@ -1,0 +1,23 @@
+1) Document position experiment (now) ((0,0) travel to 1.5,1.5)  
+   - Normal Plots 
+   - Mathematics 
+   - Simulink Blocks (Formatted and Readable) 
+1.5) Document position experiments (0,0 travel to 10,10) 
+   - Normal Plots
+   - Mathematics 
+   - Simulink Blocks (Formatted and Readable) 
+   - Repeat this 3x  
+   - Run experiment in a loop (streamlined) 
+2) Multiple waypoints A->B->C->D (arrange into a figure 8) 
+   - 6 way points 
+   - Run clockwise and counter clockwise 
+   - Normal Plots
+   - Mathematics 
+   - Simulink Blocks (Formatted and Readable) 
+3) Document pose experiment (0,0 travel to 10,10 at a certain orientation) 
+   - Normal Plots
+   - Mathematics 
+   - Simulink Blocks (Formatted and Readable) 
+4) Obstacle detection and avoidance 
+   - detect and avoid siutation
+   - detect but cannot avoid situation
