@@ -1,3 +1,3 @@
 #! /bin/sh
 
-rosbag record /amr/status/voltage /amr/status/current /zlac8015d/encoder /slamware_ros_sdk_server_node/odom /imu/data
+rosbag record /amr/status/voltage /amr/status/current /zlac8015d/encoder /slamware_ros_sdk_server_node/odom /slamware_ros_sdk_server_node/map  
