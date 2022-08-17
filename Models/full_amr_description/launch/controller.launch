@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find full_amr_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="full_amr" args="right_pivot_joint_position_controller right_motor_position_controller right_front_swivel_joint_position_controller right_front_castor_joint_position_controller left_pivot_joint_position_controller left_motor_position_controller left_front_swivel_joint_position_controller left_front_castor_joint_position_controller back_pivot_joint_position_controller right_back_swivel_joint_position_controller right_back_castor_joint_position_controller left_back_swivel_joint_position_controller left_back_castor_joint_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/full_amr/joint_states"/>
+</node>
+
+</launch>
