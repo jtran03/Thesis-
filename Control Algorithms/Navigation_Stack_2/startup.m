@@ -3,15 +3,24 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 LIVE_MODE = 0; % turn on live mapping 
 
-setInitialPose = [0.5, 0.5, pi/2]; %[x, y, theta] w.r.t World 
+setInitialPose = [3, 2, pi/2]; %[x, y, theta] w.r.t World 
 initialInput = [0; 0]; % [v, w] 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Important Waypoints  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-chargingStn = [0; 0]; 
-loadingStn = [1.5; 1.5]; 
-unloadingStn = [1.0; 1.0]; 
+chargingStn = [3; 2]; 
+loadingStn = [10; 10]; 
+unloadingStn = [15; 15]; 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+simMapImage = imread('maps/sim_map.pgm'); 
+[simRows, simColoumns, ~] = size(simMapImage);
+simMapCrop = simMapImage(1:simColoumns/2, simRows/2:simRows); 
+simMapBW = simMapCrop < 100; 
+% simMap = binaryOccupancyMap(simMapBW, 1/0.05);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Robot Parameters 
@@ -41,4 +50,7 @@ L2RTransform = [cos(L2Rtheta), -sin(L2Rtheta), L2Rx;
 % World to LidarOdom
 W2LOTransform = W2ORTransform/(L2RTransform); 
 
-open_system('navigation.slx')
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Open Simulink
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+open_system('nav2.slx');
