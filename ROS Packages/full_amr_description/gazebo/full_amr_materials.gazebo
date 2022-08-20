@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<robot name="full_amr" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="black_color" value="Gazebo/Black" />
+<xacro:property name="black_color_transparent" value="Gazebo/BlackTransparent" />
+<xacro:property name="white_color" value="Gazebo/White" />
+<xacro:property name="grey_color" value="Gazebo/Grey" />
+<xacro:property name="red_color" value="Gazebo/Red" />
+<xacro:property name="blue_color" value="Gazebo/Blue" />
+
+<gazebo reference="base_link">
+  <material>${black_color_transparent}</material>
+</gazebo>
+
+<gazebo reference="right_pivot_1">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="right_drive_1">
+  <material>${grey_color}</material>
+</gazebo>
+
+<gazebo reference="right_front_swivel_1">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="right_front_castor_1">
+  <material>${white_color}</material>
+</gazebo>
+
+<gazebo reference="left_pivot_2">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="left_drive_2">
+  <material>${grey_color}</material>
+</gazebo>
+
+<gazebo reference="left_front_swivel_1">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="left_front_castor_1">
+  <material>${white_color}</material>
+</gazebo>
+
+<gazebo reference="back_pivot_1">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="right_back_swivel_1">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="right_back_castor_1">
+  <material>${white_color}</material>
+</gazebo>
+
+<gazebo reference="left_back_swivel_4">
+  <material>${black_color}</material>
+</gazebo>
+
+<gazebo reference="left_back_castor_1">
+  <material>${white_color}</material>
+</gazebo>
+
+<gazebo reference="camera_link_1">
+  <material>${red_color}</material>
+</gazebo>
+
+<gazebo reference="lidar_link_1">
+  <material>${red_color}</material>
+</gazebo>
+
+<gazebo reference="imu_link_1">
+  <material>${red_color}</material>
+</gazebo>
+
+</robot>

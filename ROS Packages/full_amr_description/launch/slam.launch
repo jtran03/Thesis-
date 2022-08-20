@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find full_amr_description)/urdf/full_amr.xacro"/>
+
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model full_amr -x 3 -y 2 -Y 1.570796"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find full_amr_description)/worlds/bunkerparade.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Load RVIZ -->
+  <arg name="model" default="$(find full_amr_description)/urdf/full_amr.xacro"/>
+  <arg name="gui" default="false"/>
+  <arg name="rvizconfig" default="$(find full_amr_description)/launch/urdf.rviz"/>
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+  <param name="use_gui" value="$(arg gui)"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="rviz" pkg="rviz" args="-d $(arg rvizconfig)" type="rviz" required="true"/>
+
+  <node pkg="gmapping" type="slam_gmapping" name="gmapper" output="screen" >
+  <remap from="scan" to="/scan" />
+  </node>
+
+</launch>

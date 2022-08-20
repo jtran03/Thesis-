@@ -1,0 +1,478 @@
+<?xml version="1.0" ?>
+<robot name="full_amr" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find full_amr_description)/urdf/materials.xacro" />
+<!-- <xacro:include filename="$(find full_amr_description)/urdf/full_amr.trans" /> -->
+<xacro:include filename="$(find full_amr_description)/gazebo/full_amr_materials.gazebo" />
+<xacro:include filename="$(find full_amr_description)/gazebo/full_amr_physics.gazebo" />
+<xacro:include filename="$(find full_amr_description)/gazebo/full_amr_plugins.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.06777495004134892 -0.0010029893018387705 0.16105762170832022" rpy="0 0 0"/>
+    <mass value="30.320457495785316"/>
+    <inertia ixx="0.942998" iyy="0.972214" izz="1.734631" ixy="0.0" iyz="-3e-06" ixz="-0.023493"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_pivot_1">
+  <inertial>
+    <origin xyz="0.041682146702083506 -0.02206722512154996 0.015904540871161388" rpy="0 0 0"/>
+    <mass value="1.365745884742747"/>
+    <inertia ixx="0.00087" iyy="0.010125" izz="0.010033" ixy="1.2e-05" iyz="2e-06" ixz="-0.001047"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1275 0.1415 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_pivot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1275 0.1415 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_pivot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_drive_1">
+  <inertial>
+    <origin xyz="6.506472225798268e-09 -0.0505891659501399 2.2071938307610672e-07" rpy="0 0 0"/>
+    <mass value="5.235313878005528"/>
+    <inertia ixx="0.012922" iyy="0.022712" izz="0.012922" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.001661 0.1735 -0.086724" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_drive_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.001661 0.1735 -0.086724" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_drive_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_swivel_1">
+  <inertial>
+    <origin xyz="-0.014832741984725728 1.4183099139586375e-14 -0.0269059739737314" rpy="0 0 0"/>
+    <mass value="0.31658342002777473"/>
+    <inertia ixx="0.000407" iyy="0.000376" izz="0.000374" ixy="0.0" iyz="-0.0" ixz="-8.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.250152 0.164 -0.153904" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_front_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.250152 0.164 -0.153904" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_front_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_castor_1">
+  <inertial>
+    <origin xyz="1.9029910258705485e-08 0.022000000000005765 -2.066136471495783e-07" rpy="0 0 0"/>
+    <mass value="1.266959334876335"/>
+    <inertia ixx="0.001731" iyy="0.003272" izz="0.001731" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.210858 0.187 -0.068112" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_front_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.210858 0.187 -0.068112" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_front_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_pivot_2">
+  <inertial>
+    <origin xyz="0.04258776717770765 -0.022067225121554707 0.013290517703721832" rpy="0 0 0"/>
+    <mass value="1.365745884742747"/>
+    <inertia ixx="0.000776" iyy="0.010125" izz="0.010127" ixy="1.2e-05" iyz="1e-06" ixz="-0.000472"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1275 -0.1835 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_pivot_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1275 -0.1835 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_pivot_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_drive_2">
+  <inertial>
+    <origin xyz="-5.14092918296391e-08 0.05058916595014484 2.873083927712461e-08" rpy="0 0 0"/>
+    <mass value="5.235313878005528"/>
+    <inertia ixx="0.012922" iyy="0.022712" izz="0.012922" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001461 -0.1715 -0.094628" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_drive_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001461 -0.1715 -0.094628" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_drive_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_swivel_1">
+  <inertial>
+    <origin xyz="-0.01647187151586238 9.131584377541913e-15 -0.025934654956083686" rpy="0 0 0"/>
+    <mass value="0.31658342002777473"/>
+    <inertia ixx="0.000397" iyy="0.000376" izz="0.000385" ixy="0.0" iyz="-0.0" ixz="-8.6e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.250716 -0.161 -0.146277" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_front_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.250716 -0.161 -0.146277" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_front_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_castor_1">
+  <inertial>
+    <origin xyz="1.6966348220792682e-07 -0.021999999999999298 4.2561377251726373e-07" rpy="0 0 0"/>
+    <mass value="1.266959334876335"/>
+    <inertia ixx="0.001731" iyy="0.003272" izz="0.001731" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.20618 -0.184 -0.063085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_front_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.20618 -0.184 -0.063085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_front_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="back_pivot_1">
+  <inertial>
+    <origin xyz="0.0221165769001489 -1.4129322711831094e-15 0.018331868082008762" rpy="0 0 0"/>
+    <mass value="1.8919503904505723"/>
+    <inertia ixx="0.033563" iyy="0.000957" izz="0.033964" ixy="0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.272 0.001 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/back_pivot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.272 0.001 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/back_pivot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_back_swivel_1">
+  <inertial>
+    <origin xyz="-0.015680076285353783 1.4765966227514582e-14 -0.026420724669416307" rpy="0 0 0"/>
+    <mass value="0.31658342002777473"/>
+    <inertia ixx="0.000402" iyy="0.000376" izz="0.00038" ixy="0.0" iyz="-0.0" ixz="-8.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2495 0.1615 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_back_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2495 0.1615 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_back_swivel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_back_castor_1">
+  <inertial>
+    <origin xyz="1.1934897514720433e-14 0.02200000000000682 -4.090477956353311e-13" rpy="0 0 0"/>
+    <mass value="1.266959334876335"/>
+    <inertia ixx="0.001731" iyy="0.003272" izz="0.001731" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2915 0.1845 -0.0655" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_back_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2915 0.1845 -0.0655" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/right_back_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_back_swivel_4">
+  <inertial>
+    <origin xyz="-0.01568007628535356 1.432187701766452e-14 -0.026420724669413406" rpy="0 0 0"/>
+    <mass value="0.31658342002777473"/>
+    <inertia ixx="0.000402" iyy="0.000376" izz="0.00038" ixy="0.0" iyz="-0.0" ixz="-8.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2495 -0.1595 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_back_swivel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2495 -0.1595 -0.15" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_back_swivel_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_back_castor_1">
+  <inertial>
+    <origin xyz="1.2156942119645464e-14 0.022000000000006126 -4.06064071256651e-13" rpy="0 0 0"/>
+    <mass value="1.266959334876335"/>
+    <inertia ixx="0.001731" iyy="0.003272" izz="0.001731" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2915 -0.1365 -0.0655" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_back_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2915 -0.1365 -0.0655" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/left_back_castor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_1">
+  <inertial>
+    <origin xyz="-0.014632040251285339 -9.544466501728525e-07 0.014361528594915851" rpy="0 0 0"/>
+    <mass value="1.1952571247923014"/>
+    <inertia ixx="0.002923" iyy="0.000179" izz="0.002942" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.3875 0.001 -0.1175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.3875 0.001 -0.1175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- Original Z = 0.1175 + 0.5-->
+<link name="lidar_link_1">
+  <inertial>
+    <origin xyz="-1.725911800143365e-07 -4.387223998258971e-07 0.03750000000000231" rpy="0 0 0"/>
+    <mass value="1.502347895107105"/>
+    <inertia ixx="0.001009" iyy="0.001009" izz="0.00061" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.307475 -0.005051 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.307475 -0.005051 -0.1675" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin xyz="-0.0011687057135436885 0.04901118026912469 0.000430431148461044" rpy="0 0 0"/>
+    <mass value="0.02275393104073135"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="6e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.224252 0.0505 -0.1175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.224252 0.0505 -0.1175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://full_amr_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_pivot_joint" type="continuous">
+  <origin xyz="0.1275 -0.1415 0.141" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_pivot_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="right_motor" type="continuous">
+  <origin xyz="-0.125839 -0.032 -0.054276" rpy="0 0 0"/>
+  <parent link="right_pivot_1"/>
+  <child link="right_drive_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_front_swivel_joint" type="continuous">
+  <origin xyz="0.122652 -0.0225 0.012904" rpy="0 0 0"/>
+  <parent link="right_pivot_1"/>
+  <child link="right_front_swivel_1"/>
+  <axis xyz="-0.031774 -0.0 0.999495"/>
+</joint>
+
+<joint name="right_front_castor_joint" type="continuous">
+  <origin xyz="-0.039294 -0.023 -0.085792" rpy="0 0 0"/>
+  <parent link="right_front_swivel_1"/>
+  <child link="right_front_castor_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_pivot_joint" type="continuous">
+  <origin xyz="0.1275 0.1835 0.141" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_pivot_2"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="left_motor" type="continuous">
+  <origin xyz="-0.128961 -0.012 -0.046372" rpy="0 0 0"/>
+  <parent link="left_pivot_2"/>
+  <child link="left_drive_2"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="left_front_swivel_joint" type="continuous">
+  <origin xyz="0.123216 -0.0225 0.005277" rpy="0 0 0"/>
+  <parent link="left_pivot_2"/>
+  <child link="left_front_swivel_1"/>
+  <axis xyz="0.030236 -0.0 0.999543"/>
+</joint>
+
+<joint name="left_front_castor_joint" type="continuous">
+  <origin xyz="-0.044536 0.023 -0.083192" rpy="0 0 0"/>
+  <parent link="left_front_swivel_1"/>
+  <child link="left_front_castor_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="back_pivot_joint" type="continuous">
+  <origin xyz="-0.272 -0.001 0.141" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="back_pivot_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="right_back_swivel_joint" type="continuous">
+  <origin xyz="0.0225 -0.1605 0.009" rpy="0 0 0"/>
+  <parent link="back_pivot_1"/>
+  <child link="right_back_swivel_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="right_back_castor_joint" type="continuous">
+  <origin xyz="-0.042 -0.023 -0.0845" rpy="0 0 0"/>
+  <parent link="right_back_swivel_1"/>
+  <child link="right_back_castor_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="left_back_swivel_joint" type="continuous">
+  <origin xyz="0.0225 0.1605 0.009" rpy="0 0 0"/>
+  <parent link="back_pivot_1"/>
+  <child link="left_back_swivel_4"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="left_back_castor_joint" type="continuous">
+  <origin xyz="-0.042 -0.023 -0.0845" rpy="0 0 0"/>
+  <parent link="left_back_swivel_4"/>
+  <child link="left_back_castor_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="camera_link" type="fixed">
+  <origin xyz="0.3875 -0.001 0.1175" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera_link_1"/>
+</joint>
+
+<!-- Original Z = 0.1175 + 0.5-->
+<joint name="lidar_link" type="fixed">
+  <origin xyz="0.307475 0.005051 0.1675" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_link_1"/>
+</joint>
+
+<joint name="imu_link" type="fixed">
+  <origin xyz="0.224252 -0.0505 0.1175" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link_1"/>
+</joint>
+
+</robot>
