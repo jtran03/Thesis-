@@ -9,24 +9,25 @@ initialInput = [0; 0]; % [v, w]
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Important Waypoints  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-chargingStn = [3; 2]; 
-loadingStn = [10; 10]; 
-unloadingStn = [15; 15]; 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Load Map
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-simMapImage = imread('maps/sim_map.pgm'); 
-[simRows, simColoumns, ~] = size(simMapImage);
-simMapCrop = simMapImage(1:simColoumns/2, simRows/2:simRows); 
-simMapBW = simMapCrop < 100; 
-% simMap = binaryOccupancyMap(simMapBW, 1/0.05);
+chargingStn = [3, 2]; 
+loadingStn = [10, 10]; 
+unloadingStn = [15, 15]; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Robot Parameters 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 wheelBase = 0.4464; %m
 wheelRadius = 0.1715/2; %m
+robotLength = 0.775; %m 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load Map
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+simMapImage = imread('maps/sim_map.pgm'); 
+[simRows, simColoumns, ~] = size(simMapImage);
+simMapCrop = simMapImage(simColoumns/2 - 525:simColoumns/2, simRows/2:simRows - 1551); 
+simMapPad = padarray(simMapCrop, [1 1], 0, 'both');
+logicalMap = simMapPad < 100; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Transformation matrices
@@ -53,4 +54,9 @@ W2LOTransform = W2ORTransform/(L2RTransform);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Open Simulink
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% map = binaryOccupancyMap(logicalMap, 1/0.05);
+% inflate(map, 0.775/2);
+% prm = mobileRobotPRM(map, 100);
+% show(map);
+hilite_system('nav2/Gazebo Pacer')
 open_system('nav2.slx');
