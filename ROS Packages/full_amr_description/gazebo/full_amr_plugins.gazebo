@@ -32,7 +32,7 @@
     <wheelTorque>20</wheelTorque>
 
     <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
-    <commandTopic>cmd_vel</commandTopic>
+    <commandTopic>sim_cmd_vel</commandTopic>
 
     <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
     <odometryTopic>odom</odometryTopic>

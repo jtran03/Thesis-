@@ -67,12 +67,12 @@
     <physics name='default_physics' default='0' type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>1000</real_time_update_rate>
+      <real_time_update_rate>0</real_time_update_rate>
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 0.7 1</background>
-      <shadows>1</shadows>
+      <shadows>0</shadows>
     </scene>
     <audio>
       <device>default</device>
@@ -86,10 +86,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>1381 919000000</sim_time>
-      <real_time>121 917324571</real_time>
-      <wall_time>1660972261 445235497</wall_time>
-      <iterations>96368</iterations>
+      <sim_time>1425 274000000</sim_time>
+      <real_time>45 546658691</real_time>
+      <wall_time>1661159006 623683726</wall_time>
+      <iterations>43355</iterations>
       <model name='cardboard_marker'>
         <pose frame=''>0.116 0.1675 0.14 0 0 -1.5708</pose>
         <scale>1 1 1</scale>
@@ -2558,7 +2558,7 @@
     </model>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>9.23551 -11.3259 22.3007 -0 0.5058 1.63965</pose>
+        <pose frame=''>10.64 -17.6092 20.3695 -0 0.5058 1.63965</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
