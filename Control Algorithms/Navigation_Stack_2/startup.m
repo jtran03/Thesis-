@@ -3,14 +3,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 LIVE_MODE = 0; % turn on live mapping 
 
-setInitialPose = [0, 0, pi/2]; %[x, y, theta] w.r.t World 
+setInitialPose = [3, 2, pi/2]; %[x, y, theta] w.r.t World 
 initialInput = [0; 0]; % [v, w] 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Important Waypoints  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-chargingStn = [3, 2]; 
-loadingStn = [4, 3]; 
+chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
+loadingStn = [15, 15]; 
 unloadingStn = [15, 15]; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,4 +58,4 @@ W2LOTransform = W2ORTransform/(L2RTransform);
 % inflate(map, 0.775/2);
 % prm = mobileRobotPRM(map, 100);
 % show(map);
-open_system('nav22.slx');
+open_system('nav2.slx');
