@@ -2,7 +2,9 @@
 
 import rospy
 import time
+import numpy as np
 from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Time
 from geometry_msgs.msg import Twist
 from zlac8015d import Controller
 
@@ -22,8 +24,8 @@ def zlac8015d_rpm_callback(msg):
 	# right_rpm = (msg.linear.x + WHEEL_DISTANCE*msg.angular.z)/(2*WHEEL_RADIUS)
 	left_rpm = msg.angular.x
 	right_rpm = msg.angular.y
-	rospy.loginfo("Received: LeftRPM: %s, RightRPM: %s", left_rpm, left_rpm)
-
+	rospy.loginfo("Calcualted: LeftRPM: %s, RightRPM: %s", left_rpm, right_rpm)
+	#rospy.loginfo("Calculated: LeftRPM: %s, RightRPM: %s", int(left_rpm), int(right_rpm))
 
 	# Check if RPM is over the limit
 	if (abs(int(left_rpm)) > MAX_RPM):
@@ -40,7 +42,7 @@ def zlac8015d_rpm_callback(msg):
 		right_rpm = 0
 
 	# Set the RPM
-	rospy.loginfo("Got RPM. ")
+	# rospy.loginfo("Got RPM. ")
 	zlc.set_rpm(int(round(left_rpm)), -int(round(right_rpm)))
 
 # Defining main  ######################################
@@ -52,13 +54,15 @@ if __name__ == '__main__':
 
 	# Initialise publishers
 	encoder_pub = rospy.Publisher("/zlac8015d/encoder", Float32MultiArray, queue_size=10)
+	time_pub = rospy.Publisher("/zlac8015d/time", Time, queue_size=10)
 
 	# Initialise publisher messages
 	encoder_pub_msg = Float32MultiArray()
+	time_pub_msg = Time()
 
 	# Initialise subscribers
 	rospy.Subscriber("/zlac8015d/rpm", Twist, zlac8015d_rpm_callback)
-	#rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_wheels_rpm_callback)
+	#rospy.Subscriber("/turtle1/cmd_vel", Twist, zlac8015d_rpm_callback)
 
 	# Import ZLAC8015D API
 	zlc = Controller()
@@ -77,7 +81,7 @@ if __name__ == '__main__':
 
 	# Define rate as 10Hz
 	rospy.loginfo("Motors successfully up and running")
-	rate = rospy.Rate(100) # 10hz
+	rate = rospy.Rate(30) # 10hz
 
 	# Check if ros is running
 	while not rospy.is_shutdown():
@@ -85,7 +89,7 @@ if __name__ == '__main__':
 		leftEncoderValue, rightEncoderValue = zlc.get_encoder()
 		leftRPM, rightRPM = zlc.get_rpm()
 
-		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue, leftRPM, rightRPM]
+		encoder_pub_msg.data = [leftEncoderValue, rightEncoderValue, leftRPM, -rightRPM]
 		encoder_pub.publish(encoder_pub_msg)
 
 		# # Grab encoder change values
@@ -93,6 +97,9 @@ if __name__ == '__main__':
 		# encoder_change_pub.publish(encoder_change_pub_msg)
 		# prevLeftEncoderValue = leftEncoderValue
 		# prevRightEncoderValue = rightEncoderValue
+
+		time_pub_msg.data = rospy.Time.now()
+		time_pub.publish(time_pub_msg)
 
 		# Sleep for next rate
 		rate.sleep()

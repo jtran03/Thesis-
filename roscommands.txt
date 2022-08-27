@@ -5,7 +5,7 @@ source ./devel/setup.bash
 roslaunch zed_wrapper zed2.launch
 roslaunch zed_wrapper zed2.launch svo_file:=/path/to/file.svo
 
-# Brick 2.0 
+# Brick 2.0
 roslaunch tinkerforge_imu_ros bricks_v2.launch 6DXK1w
 
 # Arduino Nano
@@ -19,17 +19,19 @@ source ./devel/setup.bash
 # ZED 2 Camera
 roslaunch zed_wrapper zed2.launch
 
-# Brick 2.0 
+# Brick 2.0
 roslaunch tinkerforge_imu_ros bricks_v3.launch
 
-# Node js 
+# Node js
 source ~/Desktop/VirtualEnv/my-python-env/bin/activate
 . ~/Desktop/VirtualEnv/env/bin/activate
 cd ~/Desktop/Thesis-
-node app.js 
+node app.js
 
 roslaunch rosbridge_server rosbridge_websocket.launch
 
 rosrun zlac8015d talker.py
 
-cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src 
+cp -R ~/Desktop/Thesis-/ROS\ Packages/zlac8015d ~/catkin_ws/src
+
+scp -r jhtran@192.168.1.3:/home/jhtran/catkin_ws/src/zlac8015d_motor_driver/src/ /home/john/github/Thesis-/ROS\ Packages/zlac8015d_motor_driver/src/
