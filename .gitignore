@@ -4,7 +4,7 @@ tmp
 .vscode/*
 !.vscode/settings.json
 misc
-Control Algorithms\Navigation_Stack_2\28-8-22-Experiment1
+Control Algorithms\Navigation_Stack_2\28-8-22-Experiment1/
 
 # In case someone pulls the codefile and commits it
 code.pdf
