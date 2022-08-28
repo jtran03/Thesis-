@@ -1,9 +1,10 @@
-# Temporary files can go in a tmp folder at the base directory. 
+# Temporary files can go in a tmp folder at the base directory.
 # Useful if you're pulling stuff from the container to take a look.
 tmp
 .vscode/*
 !.vscode/settings.json
 misc
+Control Algorithms\Navigation_Stack_2\28-8-22-Experiment1
 
 # In case someone pulls the codefile and commits it
 code.pdf
