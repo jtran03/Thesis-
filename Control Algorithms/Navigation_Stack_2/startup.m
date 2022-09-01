@@ -7,11 +7,11 @@ setInitialPose = [0, 0, pi/2]; %[x, y, theta] w.r.t World
 initialInput = [0; 0]; % [v, w] 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Important Waypoints  
+% Important Waypoints  r
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
-loadingStn = [15, 15]; 
-unloadingStn = [15, 15]; 
+loadingStn = [0, 5]; 
+unloadingStn = [0, 7]; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Robot Parameters 
