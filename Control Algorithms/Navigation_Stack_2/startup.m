@@ -10,8 +10,8 @@ initialInput = [0; 0]; % [v, w]
 % Important Waypoints  rros
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
-loadingStn = [0, 1]; 
-unloadingStn = [1, 1]; 
+loadingStn = [0, 10]; 
+unloadingStn = [3, 10]; 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Robot Parameters 
