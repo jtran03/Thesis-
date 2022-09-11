@@ -10,8 +10,8 @@ initialInput = [0; 0]; % [v, w]
 % Important Waypoints  rros
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
-loadingStn = [3, 10;
-              10, 10]; 
+loadingStn = [3, 10;];
+unloadingStn = [5,10;];
 [~,numberWaypoint] = size(loadingStn); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,7 +44,7 @@ W2ORTransform = [cos(W2ORtheta), -sin(W2ORtheta), W2ORx;
 % Lidar to Robot 
 L2Rx = 0.32076;  % x
 L2Ry = -0.0073926; % y
-L2Rtheta = pi;   % theta (rad) 
+L2Rtheta = 0;   % theta (rad) 
 L2RTransform = [cos(L2Rtheta), -sin(L2Rtheta), L2Rx; 
                 sin(L2Rtheta), cos(L2Rtheta), L2Ry; 
                 0            , 0            , 1]; 
