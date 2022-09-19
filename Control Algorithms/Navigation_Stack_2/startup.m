@@ -12,10 +12,7 @@ initialInput = [0; 0]; % [v, w]
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
 %loadingStn = [0, 5;];
 %unloadingStn = [-5,5;];
-waypoints = [0, 18;
-             2.5, 18;
-             2.5, 0;
-             0, 0;];
+waypoints = [-5, 0];
 [~,numberWaypoint] = size(waypoints); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
