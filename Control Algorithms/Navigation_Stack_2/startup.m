@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % System Parameters (Change at run time) 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-LIVE_MODE = 1; % turn on live mapping 
+LIVE_MODE = 0; % turn on live mapping 
 
 setInitialPose = [0, 0, pi/2]; %[x, y, theta] w.r.t World 
 initialInput = [0; 0]; % [v, w] 
@@ -12,8 +12,8 @@ lookAhead = 0.5; % m
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
 %loadingStn = [0, 5;];
 %unloadingStn = [-5,5;];
-waypoints = [0, 14;
-             0, 0];
+waypoints = [3, 14;
+             3, 2];
 [numberWaypoint,~] = size(waypoints); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
