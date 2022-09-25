@@ -12,8 +12,7 @@ lookAhead = 0.5; % m
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
 %loadingStn = [0, 5;];
 %unloadingStn = [-5,5;];
-waypoints = [0.14, 0;
-             0.14, 5
+waypoints = [0, 14;
              ];
 [numberWaypoint,~] = size(waypoints); 
 
@@ -61,4 +60,4 @@ W2LOTransform = W2ORTransform/(L2RTransform);
 % inflate(map, 0.775/2);
 % prm = mobileRobotPRM(map, 100);
 % show(map);
-open_system('nav2.slx');
+open_system('nav21.slx');
