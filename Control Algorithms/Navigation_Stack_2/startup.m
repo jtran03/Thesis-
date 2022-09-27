@@ -4,8 +4,18 @@
 LIVE_MODE = 1; % turn on live mapping 
 
 setInitialPose = [0, 0, pi/2]; %[x, y, theta] w.r.t World 
+TureNorthToGround = deg2rad(9); 
 initialInput = [0; 0]; % [v, w] 
 lookAhead = 0.5; % m
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% States
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+INITIALISATION_STATE = 0; 
+EMERGENCY_STATE = 1; 
+WAITING_STATE = 2; 
+AUTONOMOUS_CONTROL_STATE = 3; 
+MANUAL_CONTROL_STATE = 4; 
+REVERSE_STATE = 5; 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Important Waypoints  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
