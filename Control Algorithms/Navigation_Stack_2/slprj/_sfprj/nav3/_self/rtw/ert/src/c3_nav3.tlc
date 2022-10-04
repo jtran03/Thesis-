@@ -1,0 +1,105 @@
+%implements "chartSource" "C"
+%function ChartConfig(block, system) void
+  %createrecord chartConfiguration { ...
+          executeAtInitialization  0 ...
+  }
+  %return chartConfiguration
+%endfunction
+%function ChartDataMap(block, system) void
+  %createrecord ChartDataElements {\
+    NumChartData   12 \
+    ChartDataDefaults {\
+      RecordType   "ChartData"\
+      Dimensions   []\
+      IsTestPoint  0\
+    }\
+    ChartData {\
+      Name         "is_active_c3_nav3"\
+      Description  "StateIsActive"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_c3_nav3"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         ""\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_REVERSE"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "REVERSE"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "is_AUTONOMOUS_CONTROL"\
+      Description  "StateActiveChild"\
+      SFName       ""\
+      Path         "AUTONOMOUS_CONTROL"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "last"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "last"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "finishedMission"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "finishedMission"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "count"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "count"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "currentGoalHeading"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "currentGoalHeading"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "waypointLine"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "waypointLine"\
+      SrcLocation  ""\
+      Dimensions   [3,2]\
+    }\
+    ChartData {\
+      Name         "all_waypoints"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "all_waypoints"\
+      SrcLocation  ""\
+      Dimensions   [10,2]\
+    }\
+    ChartData {\
+      Name         "finishedMissionCount"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "finishedMissionCount"\
+      SrcLocation  ""\
+    }\
+    ChartData {\
+      Name         "waypointLinePID"\
+      Description  "ChartLocal"\
+      SFName       ""\
+      Path         "waypointLinePID"\
+      SrcLocation  ""\
+      Dimensions   [2,2]\
+    }\
+  }
+  %return ChartDataElements
+%endfunction

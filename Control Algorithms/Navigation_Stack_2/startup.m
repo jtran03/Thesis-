@@ -22,16 +22,15 @@ REVERSE_STATE = 5;
 chargingStn = [setInitialPose(1,1), setInitialPose(1,2)]; 
 %loadingStn = [0, 5;];
 %unloadingStn = [-5,5;];
-% waypoints = [3, 14;
-%              3, 2];
-waypoints = [-2.5, 0;
-             -2.5, 5;
-             2.5, 5;
-             2.5, 0;
-             2.5, 5;
-             -2.5, 5;
-             -2.5, 0;
-             0, 0;]; 
+waypoints = [0, 5; -1, 3; 0, 4;-1, 3; 0,2;];
+% waypoints = [-2.5, 0;
+%              -2.5, 5;
+%              2.5, 5;
+%              2.5, 0;
+%              2.5, 5;
+%              -2.5, 5;
+%              -2.5, 0;
+%              0, 0;]; 
           
 [numberWaypoint,~] = size(waypoints); 
 
