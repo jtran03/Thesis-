@@ -11,7 +11,7 @@
   <!-- Create a ROS Node -->
   <script type="text/javascript" type="text/javascript">
     var ros = new ROSLIB.Ros({
-      url: 'ws://10.0.0.1:9090' //change this 
+      url: 'ws://10.0.0.1:9090' //change this
       // url: 'ws://localhost:9090/'
     });
 
@@ -28,24 +28,24 @@
       document.getElementById("status").innerHTML = "Closed";
     });
 
-    // Subscribing Topics 
+    // Subscribing Topics
     // -------------------
 
     // Listening to topic:/turtlesim/pose
     var pose_listener = new ROSLIB.Topic({
       ros: ros,
-      name: '/turtle1/pose',
-      messageType: 'turtlesim/Pose'
+      name: '/amr/log',
+      messageType: 'std_msgs/Pose'
     });
 
     // Callback Function to topic:/turtlesim/pose
     pose_listener.subscribe(function (m) {
 
-      // Convert to JSon for parsing 
+      // Convert to JSon for parsing
       const json = JSON.stringify(m);
-      const obj = JSON.parse(json); 
+      const obj = JSON.parse(json);
 
-      // Save X Position 
+      // Save X Position
       document.getElementById("x_coord").innerHTML = obj.x;
       // Save Y Position
       document.getElementById("y_coord").innerHTML = obj.y;
@@ -66,7 +66,7 @@
       txt_listener.unsubscribe();
     });
 
-    // Publishing Topics 
+    // Publishing Topics
     // ------------------
 
     // Listening to topic:/turtle1/cmd_vel
@@ -76,10 +76,10 @@
       messageType: 'geometry_msgs/Twist'
     });
 
-    // Publishing Function 
+    // Publishing Function
     move = function (linear, angular) {
 
-      // Set-up a twist message  
+      // Set-up a twist message
       var twist = new ROSLIB.Message({
         linear: {
           x: linear,
@@ -93,11 +93,11 @@
         }
       });
 
-      // Main code to publish a message 
+      // Main code to publish a message
       cmd_vel_listener.publish(twist);
     }
 
-    // Joystick Code 
+    // Joystick Code
     // --------------------------------
     createJoystick = function () {
       var options = {
